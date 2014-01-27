@@ -81,13 +81,79 @@ class IndexController extends BaseController
 
             $post->setTitle($request->get('title'));
 
-            $category = $categoryService->getCategoryBySlug($request->get('category'));
+            $category = $categoryService->getCategoryById($request->get('category'));
             $post->setCategory($category);
 
             $post->setContent($request->get('content'));
             $postService->savePost($post);
+
+            $this->get('session')->getFlashBag()->add(
+                'info',
+                'New article has been saved!'
+            );
+
+            return $this->redirect($this->generateUrl('homepage'));
         }
 
         return $this->createResponseArray();
+    }
+
+    /**
+     * @Route("/edit/{postId}", name="edit_post")
+     * @Template("BlogMainBundle:Index:editPost.html.twig")
+     */
+    public function editPostAction(Request $request, $postId)
+    {
+        $postService = $this->getPostService();
+        $categoryService = $this->getCategoryService();
+        $post = $postService->getPostById($postId);
+
+        if ($request->getMethod() == 'POST') {
+            $post->setTitle($request->get('title'));
+
+            $category = $categoryService->getCategoryById($request->get('category'));
+            $post->setCategory($category);
+
+            $post->setContent($request->get('content'));
+            $postService->savePost($post);
+
+            $this->get('session')->getFlashBag()->add(
+                'info',
+                'Your changes were saved!'
+            );
+        }
+
+        return $this->createResponseArray(
+            array(
+                'article' => $post,
+            )
+        );
+    }
+
+    /**
+     * @Route("/delete/{postId}", name="delete_post")
+     * @Template("BlogMainBundle:Index:deletePost.html.twig")
+     */
+    public function deletePostAction(Request $request, $postId)
+    {
+        $postService = $this->getPostService();
+        $post = $postService->getPostById($postId);
+
+        if ($request->getMethod() == 'POST') {
+            $postService->deletePost($post);
+
+            $this->get('session')->getFlashBag()->add(
+                'info',
+                'Article has been deleted!'
+            );
+
+            return $this->redirect($this->generateUrl('homepage'));
+        }
+
+        return $this->createResponseArray(
+            array(
+                'article' => $post,
+            )
+        );
     }
 }

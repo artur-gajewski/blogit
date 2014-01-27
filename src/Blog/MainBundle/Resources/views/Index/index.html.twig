@@ -13,8 +13,8 @@
                             {{ article.created | date('M d, Y') }}
                         </span>
                     </h4>
-                    <a href="#" class="btn btn-primary btn-xs">Edit post</a>
-                    <a href="#" class="btn btn-danger btn-xs">Delete post</a>
+                    <a href="{{ url('edit_post', { 'postId': article.id }) }}" class="btn btn-primary btn-xs">Edit post</a>
+                    <a href="{{ url('delete_post', { 'postId': article.id }) }}" class="btn btn-danger btn-xs">Delete post</a>
                 </div>
                 <div class="content">
                     {{ article.content | raw }}

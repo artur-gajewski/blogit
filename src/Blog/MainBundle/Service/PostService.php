@@ -92,4 +92,18 @@ class PostService
 
         return $post;
     }
+
+    /**
+     * Delete a post
+     *
+     * @param  Post $post
+     * @return Post
+     */
+    public function deletePost(Post $post)
+    {
+        $this->em->remove($post);
+        $this->em->flush();
+
+        return $post;
+    }
 }
