@@ -2,16 +2,16 @@
 
 namespace Blog\MainBundle\Service;
 
-use Blog\MainBundle\Entity\Blog\Post;
+use Blog\MainBundle\Entity\Blog\Category;
 
-use Blog\MainBundle\Entity\Blog\PostRepository;
+use Blog\MainBundle\Entity\Blog\CategoryRepository;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Security\Core\SecurityContext;
 
 use Exception;
 
-class PostService
+class CategoryService
 {
     /**
      * @var EntityManager
@@ -19,7 +19,7 @@ class PostService
     protected $em;
 
     /**
-     * @var PostRepository
+     * @var CategoryRepository
      */
     protected $repository;
 
@@ -30,12 +30,12 @@ class PostService
 
     /**
      * @param EntityManager     $em
-     * @param PostRepository  $repository
+     * @param CategoryRepository  $repository
      * @param SecurityContext   $security
      */
     public function __construct(
         EntityManager       $em,
-        PostRepository      $repository,
+        CategoryRepository  $repository,
         SecurityContext     $security)
     {
         $this->em               = $em;
@@ -46,7 +46,7 @@ class PostService
     /**
      * @return array
      */
-    public function getPosts()
+    public function getCategories()
     {
         return $this->repository->findAll();
     }
@@ -54,10 +54,10 @@ class PostService
     /**
      * @return array
      */
-    public function getPostsByCategory($category)
+    public function getCategoryBySlug($slug)
     {
-        return $this->repository->findBy(
-            array('category' => $category)
+        return $this->repository->findOneBy(
+            array('slug' => $slug)
         );
     }
 
@@ -65,31 +65,22 @@ class PostService
      * @param  int $id
      * @return Post
      */
-    public function getPostById($id)
+    public function getCategoryById($id)
     {
         return $this->repository->find($id);
     }
 
     /**
-     * @param  int $id
-     * @return Post
-     */
-    public function getPostByIdAndSlug($postId, $slug)
-    {
-        return $this->repository->getPostByIdAndSlug($postId, $slug);
-    }
-
-    /**
-     * Save a post
+     * Save a Category
      *
-     * @param  Post $post
-     * @return Post
+     * @param  Category $category
+     * @return Category
      */
-    public function savePost(Post $post)
+    public function saveCategory(Category $category)
     {
-        $this->em->persist($post);
+        $this->em->persist(Category);
         $this->em->flush();
 
-        return $post;
+        return $category;
     }
 }

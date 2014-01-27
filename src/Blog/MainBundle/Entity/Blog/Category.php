@@ -35,6 +35,10 @@ class Category
      */
     private $slug;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Post", mappedBy="category")
+     */
+    protected $posts;
 
     /**
      * Get id
@@ -90,5 +94,25 @@ class Category
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Get posts
+     *
+     * @return Doctrine\Common\Collections\Collection
+     */
+    public function getPosts()
+    {
+        return $this->posts;
+    }
+
+    /**
+     * Return count of posts
+     *
+     * @return integer
+     */
+    public function getCountPosts()
+    {
+        return count($this->posts);
     }
 }

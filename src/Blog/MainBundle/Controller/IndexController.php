@@ -20,10 +20,47 @@ class IndexController extends BaseController
     {
         $postService = $this->getPostService();
         $posts = $postService->getPosts();
+        $posts = array_reverse($posts);
+
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $posts,
+            $this->get('request')->query->get('page', 1) /*page number*/,
+            5 /*limit per page*/
+        );
 
         return $this->createResponseArray(
             array(
-                'articles' => $posts,
+                'pagination' => $pagination,
+            )
+        );
+    }
+
+    /**
+     * @Route("/category/{slug}", name="category")
+     * @Template("BlogMainBundle:Index:index.html.twig")
+     */
+    public function categoryAction($slug)
+    {
+
+        $postService = $this->getPostService();
+        $categoryService = $this->getCategoryService();
+
+        $category = $categoryService->getCategoryBySlug($slug);
+
+        $posts = $postService->getPostsByCategory($category);
+        $posts = array_reverse($posts);
+
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $posts,
+            $this->get('request')->query->get('page', 1) /*page number*/,
+            5 /*limit per page*/
+        );
+
+        return $this->createResponseArray(
+            array(
+                'pagination' => $pagination,
             )
         );
     }
@@ -35,23 +72,22 @@ class IndexController extends BaseController
     public function newPostAction(Request $request)
     {
         $postService = $this->getPostService();
+        $categoryService = $this->getCategoryService();
 
-        $post = new Post();
-        $post->setTitle($request->get('title'));
-        $post->setContent($request->get('content'));
+        $categories = $categoryService->getCategories();
 
         if ($request->getMethod() == 'POST') {
+            $post = new Post();
+
+            $post->setTitle($request->get('title'));
+
+            $category = $categoryService->getCategoryBySlug($request->get('category'));
+            $post->setCategory($category);
+
+            $post->setContent($request->get('content'));
             $postService->savePost($post);
-            echo "OK";
         }
 
-
-        $posts = $postService->getPosts();
-
-        return $this->createResponseArray(
-            array(
-                'articles' => $posts,
-            )
-        );
+        return $this->createResponseArray();
     }
 }

@@ -55,21 +55,13 @@
             <h2>By Categories</h2>
 
             <ul class="list-group">
+                <li class="list-group-item">
+                    <a href="{{ path('homepage') }}">All posts</a>
+                </li>
                 {% for category in categories %}
                     <li class="list-group-item">
-                        <span class="badge">{{ category.count }}</span>
-                        <a href="{{ app.request.basepath }}/category/{{ category.slug }}">{{ category.title }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
-
-            <h2>By Years</h2>
-
-            <ul class="list-group">
-                {% for year in years %}
-                    <li class="list-group-item">
-                        <span class="badge">{{ year.count }}</span>
-                        <a href="{{ app.request.basepath }}/year/{{ year.created }}">{{ year.created }}</a>
+                        <span class="badge">{{ category.getCountPosts() }}</span>
+                        <a href="{{ url('homepage') }}category/{{ category.slug }}">{{ category.title }}</a>
                     </li>
                 {% endfor %}
             </ul>
@@ -79,14 +71,14 @@
             <ul class="list-group">
                 {% if app.user and is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                     <li class="list-group-item">
-                        <a href="{{ path('new_post') }}">New post</a>
+                        <a href="{{ url('new_post') }}">New post</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="{{ path('fos_user_security_logout') }}">Logout</a>
+                        <a href="{{ url('fos_user_security_logout') }}">Logout</a>
                     </li>
                 {% else %}
                     <li class="list-group-item">
-                        <a href="{{ path('fos_user_security_login') }}">Login</a>
+                        <a href="{{ url('fos_user_security_login') }}">Login</a>
                     </li>
                 {% endif %}
             </ul>

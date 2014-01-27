@@ -3,7 +3,7 @@
 namespace Blog\MainBundle\Entity\Blog;
 
 use Doctrine\ORM\Mapping as ORM;
-use Blog\MainBundle\Entity\Blog\Group;
+use Blog\MainBundle\Entity\Blog\Category;
 
 /**
  * Post
@@ -91,10 +91,10 @@ class Post
     /**
      * Set category
      *
-     * @param string $category
+     * @param Category $category
      * @return Post
      */
-    public function setCategory($category)
+    public function setCategory(Category $category)
     {
         $this->category = $category;
 

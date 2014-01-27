@@ -12,33 +12,12 @@ class BaseController extends Controller
 {
     public function createResponseArray($array = null)
     {
+        $categoryService = $this->getCategoryService();
+
+        $categories = $categoryService->getCategories();
+
         $common =  array(
-            'categories' => array(
-                array(
-                    'slug' => 'testing-stuff',
-                    'title' => 'Testing stuff',
-                    'count' => 13,
-                ),
-                array(
-                    'slug' => 'another-cat',
-                    'title' => 'Another cat',
-                    'count' => 11,
-                ),
-            ),
-            'years' => array(
-                array(
-                    'created' => 2004,
-                    'count' => 13,
-                ),
-                array(
-                    'created' => 2005,
-                    'count' => 33,
-                ),
-                array(
-                    'created' => 2006,
-                    'count' => 57,
-                ),
-            ),
+            'categories' => $categories,
         );
 
         if (!empty($array)) {
@@ -54,5 +33,13 @@ class BaseController extends Controller
     public function getPostService()
     {
         return $this->container->get('blog_main.service.post');
+    }
+
+    /**
+     * @return CategoryService
+     */
+    public function getCategoryService()
+    {
+        return $this->container->get('blog_main.service.category');
     }
 }
