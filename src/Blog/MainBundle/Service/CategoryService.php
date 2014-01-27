@@ -78,7 +78,21 @@ class CategoryService
      */
     public function saveCategory(Category $category)
     {
-        $this->em->persist(Category);
+        $this->em->persist($category);
+        $this->em->flush();
+
+        return $category;
+    }
+
+    /**
+     * Delete a category
+     *
+     * @param  Category $category
+     * @return Category
+     */
+    public function deleteCategory(Category $category)
+    {
+        $this->em->remove($category);
         $this->em->flush();
 
         return $category;

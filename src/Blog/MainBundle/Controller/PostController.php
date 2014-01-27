@@ -10,71 +10,16 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 use Blog\MainBundle\Entity\Blog\Post;
 
-class IndexController extends BaseController
+class PostController extends BaseController
 {
     /**
-     * @Route("/", name="homepage")
-     * @Template("BlogMainBundle:Index:index.html.twig")
-     */
-    public function indexAction()
-    {
-        $postService = $this->getPostService();
-        $posts = $postService->getPosts();
-        $posts = array_reverse($posts);
-
-        $paginator  = $this->get('knp_paginator');
-        $pagination = $paginator->paginate(
-            $posts,
-            $this->get('request')->query->get('page', 1) /*page number*/,
-            5 /*limit per page*/
-        );
-
-        return $this->createResponseArray(
-            array(
-                'pagination' => $pagination,
-            )
-        );
-    }
-
-    /**
-     * @Route("/category/{slug}", name="category")
-     * @Template("BlogMainBundle:Index:index.html.twig")
-     */
-    public function categoryAction($slug)
-    {
-
-        $postService = $this->getPostService();
-        $categoryService = $this->getCategoryService();
-
-        $category = $categoryService->getCategoryBySlug($slug);
-
-        $posts = $postService->getPostsByCategory($category);
-        $posts = array_reverse($posts);
-
-        $paginator  = $this->get('knp_paginator');
-        $pagination = $paginator->paginate(
-            $posts,
-            $this->get('request')->query->get('page', 1) /*page number*/,
-            5 /*limit per page*/
-        );
-
-        return $this->createResponseArray(
-            array(
-                'pagination' => $pagination,
-            )
-        );
-    }
-
-    /**
-     * @Route("/new", name="new_post")
-     * @Template("BlogMainBundle:Index:newPost.html.twig")
+     * @Route("/admin/post/new", name="new_post")
+     * @Template("BlogMainBundle:Post:new.html.twig")
      */
     public function newPostAction(Request $request)
     {
         $postService = $this->getPostService();
         $categoryService = $this->getCategoryService();
-
-        $categories = $categoryService->getCategories();
 
         if ($request->getMethod() == 'POST') {
             $post = new Post();
@@ -89,7 +34,7 @@ class IndexController extends BaseController
 
             $this->get('session')->getFlashBag()->add(
                 'info',
-                'New article has been saved!'
+                'New post has been saved!'
             );
 
             return $this->redirect($this->generateUrl('homepage'));
@@ -99,8 +44,8 @@ class IndexController extends BaseController
     }
 
     /**
-     * @Route("/edit/{postId}", name="edit_post")
-     * @Template("BlogMainBundle:Index:editPost.html.twig")
+     * @Route("/admin/post/edit/{postId}", name="edit_post")
+     * @Template("BlogMainBundle:Post:edit.html.twig")
      */
     public function editPostAction(Request $request, $postId)
     {
@@ -125,14 +70,14 @@ class IndexController extends BaseController
 
         return $this->createResponseArray(
             array(
-                'article' => $post,
+                'post' => $post,
             )
         );
     }
 
     /**
-     * @Route("/delete/{postId}", name="delete_post")
-     * @Template("BlogMainBundle:Index:deletePost.html.twig")
+     * @Route("/admin/post/delete/{postId}", name="delete_post")
+     * @Template("BlogMainBundle:Post:delete.html.twig")
      */
     public function deletePostAction(Request $request, $postId)
     {
@@ -152,14 +97,14 @@ class IndexController extends BaseController
 
         return $this->createResponseArray(
             array(
-                'article' => $post,
+                'post' => $post,
             )
         );
     }
 
     /**
-     * @Route("/view/{postId}", name="view_post")
-     * @Template("BlogMainBundle:Index:viewPost.html.twig")
+     * @Route("/post/{postId}", name="view_post")
+     * @Template("BlogMainBundle:Post:view.html.twig")
      */
     public function viewPostAction(Request $request, $postId)
     {
@@ -168,7 +113,7 @@ class IndexController extends BaseController
 
         return $this->createResponseArray(
             array(
-                'article' => $post,
+                'post' => $post,
             )
         );
     }

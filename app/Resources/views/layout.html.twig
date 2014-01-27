@@ -38,7 +38,15 @@
         {% endif %}
     </main>
 
-    <hr/>
+    <ul class="breadcrumb" style="margin-bottom: 5px;">
+        <li><a href="{{ path('homepage') }}">Home</a></li>
+        {% block section %}
+            {% if current_category is defined %}
+                <li>Category</li>
+                <li>{{ current_category.title | capitalize }}</li>
+            {% endif %}
+        {% endblock %}
+    </ul>
 
     {% for message in app.session.getFlashBag.get('info') %}
         <div class="alert alert-dismissable alert-success">
@@ -53,34 +61,31 @@
         </div>
         <div class="col-sm-4">
             <h2>Listings</h2>
-
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <a href="{{ path('homepage') }}">All posts</a>
-                </li>
-            </ul>
+            <div class="list-group">
+                <a class="list-group-item" href="{{ url('homepage') }}">&raquo; Latest posts</a>
+            </div>
 
             <h2>Categories</h2>
-
-            <ul class="list-group">
+            <div class="list-group">
                 {% for category in categories %}
-                    <li class="list-group-item">
-                        <span class="badge">{{ category.getCountPosts() }}</span>
-                        <a href="{{ url('homepage') }}category/{{ category.slug }}">{{ category.title | capitalize }}</a>
-                    </li>
+                <a class="list-group-item" href="{{ url('homepage') }}category/{{ category.slug }}">
+                    &raquo; {{ category.title | capitalize }}
+                    <span class="badge">{{ category.getCountPosts() }}</span>
+                </a>
+                {% else %}
+                    No categories found.
                 {% endfor %}
-            </ul>
+            </div>
 
             {% if app.user and is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 <h2>Admin</h2>
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <a href="{{ url('new_post') }}">New post</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="{{ url('fos_user_security_logout') }}">Logout</a>
-                    </li>
-                </ul>
+                <div class="list-group">
+                    {% if categories | length > 0 %}
+                        <a class="list-group-item" href="{{ url('new_post') }}">&raquo; New post</a>
+                    {% endif %}
+                    <a class="list-group-item" href="{{ url('list_categories') }}">&raquo; Categories</a>
+                    <a class="list-group-item" href="{{ url('fos_user_security_logout') }}">&raquo; Logout</a>
+                </div>
             {% endif %}
         </div>
     </div>

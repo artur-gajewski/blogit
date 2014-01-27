@@ -1,21 +1,27 @@
 {% extends "::layout.html.twig" %}
 
+{% block section %}
+    <li>Administration</li>
+    <li>Edit post</li>
+{% endblock %}
+
 {% block page_content %}
+    <h2>Edit post</h2>
     <div class="form-container">
-        <form action="{{ url('edit_post', { 'postId': article.id }) }}" method="post" class="bs-example form-horizontal">
+        <form action="{{ url('edit_post', { 'postId': post.id }) }}" method="post" class="bs-example form-horizontal">
             <fieldset>
                 <div class="form-group">
                     <label for="title" class="col-lg-2 control-label">Title</label>
                     <div class="col-lg-10">
-                        <input type="text" class="form-control" id="title" name="title" required="required" value="{{ article.title }}" placeholder="Enter post's title">
+                        <input type="text" class="form-control" id="title" name="title" required="required" value="{{ post.title }}" placeholder="Enter post's title">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="category" class="col-lg-2 control-label">Category</label>
                     <div class="col-lg-10">
-                        <select id="category" name="category">
+                        <select id="category" class="form-control" name="category">
                             {% for category in categories %}
-                                <option value="{{ category.id }}" {% if category.id == article.category.id %}SELECTED{% endif %}>{{ category.title }}</option>
+                                <option value="{{ category.id }}" {% if category.id == post.category.id %}SELECTED{% endif %}>{{ category.title | capitalize }}</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -23,7 +29,7 @@
                 <div class="form-group">
                     <label for="content" class="col-lg-2 control-label">Content</label>
                     <div class="col-lg-10">
-                        <textarea id="content" name="content" class="ckeditor">{{ article.content }}</textarea>
+                        <textarea id="content" name="content" class="ckeditor">{{ post.content }}</textarea>
                     </div>
                 </div>
                 <div class="form-group">

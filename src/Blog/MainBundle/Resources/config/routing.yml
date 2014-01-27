@@ -1,3 +1,11 @@
-index:
-    resource: "@BlogMainBundle/Controller/IndexController.php"
+listing:
+    resource: "@BlogMainBundle/Controller/ListingController.php"
+    type:     annotation
+
+category:
+    resource: "@BlogMainBundle/Controller/CategoryController.php"
+    type:     annotation
+
+post:
+    resource: "@BlogMainBundle/Controller/PostController.php"
     type:     annotation

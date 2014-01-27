@@ -1,6 +1,12 @@
 {% extends "::layout.html.twig" %}
 
+{% block section %}
+    <li>Administration</li>
+    <li>New post</li>
+{% endblock %}
+
 {% block page_content %}
+    <h2>New post</h2>
     <div class="form-container">
         <form action="{{ path("new_post") }}" method="post" class="bs-example form-horizontal">
             <fieldset>
@@ -13,9 +19,9 @@
                 <div class="form-group">
                     <label for="category" class="col-lg-2 control-label">Category</label>
                     <div class="col-lg-10">
-                        <select id="category" name="category">
+                        <select id="category" class="form-control" name="category">
                             {% for category in categories %}
-                                <option value="{{ category.id }}">{{ category.title }}</option>
+                                <option value="{{ category.id }}">{{ category.title | capitalize }}</option>
                             {% endfor %}
                         </select>
                     </div>

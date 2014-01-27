@@ -60,6 +60,8 @@ class Category
     {
         $this->title = $title;
 
+        $this->slug = $this->slugify($title);
+
         return $this;
     }
 
@@ -114,5 +116,39 @@ class Category
     public function getCountPosts()
     {
         return count($this->posts);
+    }
+
+    /**
+     * Generate slugified version of given string
+     *
+     * @param $text
+     * @return mixed|string
+     */
+    public function slugify($text)
+    {
+        // replace non letter or digits by -
+        $text = preg_replace('#[^\\pL\d]+#u', '-', $text);
+
+        // trim
+        $text = trim($text, '-');
+
+        // transliterate
+        if (function_exists('iconv'))
+        {
+            $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+        }
+
+        // lowercase
+        $text = strtolower($text);
+
+        // remove unwanted characters
+        $text = preg_replace('#[^-\w]+#', '', $text);
+
+        if (empty($text))
+        {
+            return 'n-a';
+        }
+
+        return $text;
     }
 }

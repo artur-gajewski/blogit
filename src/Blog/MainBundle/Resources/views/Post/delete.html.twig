@@ -1,8 +1,13 @@
 {% extends "::layout.html.twig" %}
 
-{% block page_content %}
-    <div class="form-container">
+{% block section %}
+    <li>Administration</li>
+    <li>Delete post</li>
+{% endblock %}
 
+{% block page_content %}
+    <h2>Delete post</h2>
+    <div class="form-container">
         <div class="panel panel-danger">
             <div class="panel-heading">
                 <h3 class="panel-title">Warning!</h3>
@@ -11,29 +16,28 @@
                 You are about to delete this post. Once you delete it, you cannot undo the operation.
             </div>
         </div>
-
-        <div class="row article">
+        <div class="row post">
             <div class="col-lg-12">
                 <div>
-                    <h3>{{ article.title }}</h3>
+                    <h3>{{ post.title }}</h3>
                 </div>
                 <div>
                     <h4>
                         <span class="label label-default">
-                            {{ article.created | date('M d, Y') }}
+                            {{ post.created | date('M d, Y') }}
                         </span>
                     </h4>
                 </div>
                 <div class="content">
-                    {{ article.content | raw }}
+                    {{ post.content | raw }}
                 </div>
             </div>
         </div>
-        <form action="{{ url('delete_post', { 'postId': article.id }) }}" method="post" class="bs-example form-horizontal">
+        <form action="{{ url('delete_post', { 'postId': post.id }) }}" method="post" class="bs-example form-horizontal">
             <fieldset>
                 <div class="form-group">
                     <div class="col-lg-12">
-                        <button type="submit" id="submit" name="submit" class="btn btn-danger">Delete this post</button>
+                        <button type="submit" id="submit" name="submit" class="btn btn-danger delete-post">Delete this post</button>
                     </div>
                 </div>
             </fieldset>
