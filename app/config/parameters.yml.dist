@@ -1,0 +1,22 @@
+parameters:
+    database_driver:   pdo_mysql
+    database_host:     127.0.0.1
+    database_port:     ~
+    database_name:     symfony
+    database_user:     root
+    database_password: ~
+
+    mailer_transport:  smtp
+    mailer_host:       127.0.0.1
+    mailer_user:       ~
+    mailer_password:   ~
+
+    locale:            en
+    secret:            ThisTokenIsNotSoSecretChangeIt
+
+    blog_theme: default # default / cosmo / flatly
+    blog_title: My new blog
+    blog_hero: This a hero
+    blog_subhero: This is a subhero
+    blog_copyright: Your copyright name
+    blog_email: your.email@address.com

@@ -1,0 +1,3 @@
+index:
+    resource: "@BlogMainBundle/Controller/IndexController.php"
+    type:     annotation

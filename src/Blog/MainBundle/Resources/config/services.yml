@@ -1,0 +1,10 @@
+services:
+    blog_main.service.post:
+        class:     Blog\MainBundle\Service\PostService
+        arguments: ["@doctrine.orm.entity_manager", "@blog_main.repository.post", "@security.context"]
+
+    blog_main.repository.post:
+        class:           Blog\MainBundle\Entity\PostRepository
+        arguments:       [Blog\MainBundle\Entity\Blog\Post]
+        factory_service: doctrine.orm.entity_manager
+        factory_method:  getRepository

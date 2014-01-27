@@ -1,0 +1,44 @@
+.page {
+    margin-top: 80px;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 85%;
+    }
+}
+
+h2 {
+    margin-bottom: 15px;
+}
+
+a {
+    color: #000;
+}
+
+a:hover {
+    color: #000;
+}
+
+.page-header {
+    padding-bottom: 9px;
+    margin: 0px 0 20px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+
+.list-group-item {
+    border: 0px;
+}
+
+.page-title {
+    margin-bottom: 20px;
+}
+
+.article {
+    margin-bottom: 20px;
+}
+
+#footer {
+    height: 50px;
+}

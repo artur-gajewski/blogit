@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ blog_title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />
+
+    <link rel="stylesheet" href="{{ asset('bundles/blogmain/themes/' ~ blog_theme ~ '/css/bootstrap.css') }}" media="screen">
+    <link rel="stylesheet" href="{{ asset('bundles/blogmain/css/blog.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/blogmain/themes/' ~ blog_theme ~ '/css/theme.css') }}">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="{{ asset('js/html5shiv.js') }}"></script>
+    <![endif]-->
+
+    <link rel="icon" type="image/ico" href="{{ asset('bundles/blogmain/favicon.ico') }}">
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="{{ path('homepage') }}" class="navbar-brand">{{ blog_title }}</a>
+        </div>
+    </div>
+</div>
+
+<div class="container page">
+
+    <main class="bs-masthead" id="content" role="main">
+        <div class="container">
+            <h1>{{ blog_hero }}</h1>
+            <p class="lead">{{ blog_subhero }}</p>
+        </div>
+    </main>
+
+    <hr/>
+
+    {% for message in app.session.getFlashBag.get('info') %}
+        <div class="alert alert-dismissable alert-success">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <div class="row">
+        <div class="col-sm-8">
+            {% block page_content %}{% endblock %}
+        </div>
+        <div class="col-sm-4">
+            <h2>By Categories</h2>
+
+            <ul class="list-group">
+                {% for category in categories %}
+                    <li class="list-group-item">
+                        <span class="badge">{{ category.count }}</span>
+                        <a href="{{ app.request.basepath }}/category/{{ category.slug }}">{{ category.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <h2>By Years</h2>
+
+            <ul class="list-group">
+                {% for year in years %}
+                    <li class="list-group-item">
+                        <span class="badge">{{ year.count }}</span>
+                        <a href="{{ app.request.basepath }}/year/{{ year.created }}">{{ year.created }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <h2>Options</h2>
+
+            <ul class="list-group">
+                {% if app.user and is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <li class="list-group-item">
+                        <a href="{{ path('new_post') }}">New post</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="{{ path('fos_user_security_logout') }}">Logout</a>
+                    </li>
+                {% else %}
+                    <li class="list-group-item">
+                        <a href="{{ path('fos_user_security_login') }}">Login</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+<hr/>
+
+<section id="footer">
+    <div class="bottom-menu-inverse">
+        <div class="container footer">
+            <div class="row">
+                <div class="col-md-6 footer-column">
+                    <p>Copyright &copy; {{ "now"|date("Y") }}, {{ blog_copyright }}</p>
+                </div>
+                <div class="col-md-6 footer-column text-right">
+                    <p>{{ blog_email }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="{{ asset('bundles/blogmain/js/bootstrap.js') }}"></script>
+
+{% block javascripts %}{% endblock %}
+
+</body>
+</html>
