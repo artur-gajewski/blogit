@@ -2,6 +2,10 @@
     margin-top: 80px;
 }
 
+.bs-masthead {
+    margin-bottom: 40px;
+}
+
 @media (min-width: 1200px) {
     .container {
         width: 85%;

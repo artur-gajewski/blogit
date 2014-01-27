@@ -29,10 +29,13 @@
 <div class="container page">
 
     <main class="bs-masthead" id="content" role="main">
-        <div class="container">
+        {% if app.user and is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <h1>Hello, {{ app.user }}</h1>
+            <p class="lead">You are now ready to create a new post.</p>
+        {% else %}
             <h1>{{ blog_hero }}</h1>
             <p class="lead">{{ blog_subhero }}</p>
-        </div>
+        {% endif %}
     </main>
 
     <hr/>
