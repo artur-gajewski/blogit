@@ -5,7 +5,7 @@
         <div class="row article">
             <div class="col-lg-12">
                 <div>
-                    <h3>{{ article.title }}</h3>
+                    <h3><a href="{{ url('view_post', { 'postId': article.id }) }}">{{ article.title }}</a></h3>
                 </div>
                 <div>
                     <h4>
@@ -13,8 +13,10 @@
                             {{ article.created | date('M d, Y') }}
                         </span>
                     </h4>
-                    <a href="{{ url('edit_post', { 'postId': article.id }) }}" class="btn btn-primary btn-xs">Edit post</a>
-                    <a href="{{ url('delete_post', { 'postId': article.id }) }}" class="btn btn-danger btn-xs">Delete post</a>
+                    {% if app.user and is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <a href="{{ url('edit_post', { 'postId': article.id }) }}" class="btn btn-primary btn-xs">Edit post</a>
+                        <a href="{{ url('delete_post', { 'postId': article.id }) }}" class="btn btn-danger btn-xs">Delete post</a>
+                    {% endif %}
                 </div>
                 <div class="content">
                     {{ article.content | raw }}

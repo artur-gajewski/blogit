@@ -52,36 +52,36 @@
             {% block page_content %}{% endblock %}
         </div>
         <div class="col-sm-4">
-            <h2>By Categories</h2>
+            <h2>Listings</h2>
 
             <ul class="list-group">
                 <li class="list-group-item">
                     <a href="{{ path('homepage') }}">All posts</a>
                 </li>
+            </ul>
+
+            <h2>Categories</h2>
+
+            <ul class="list-group">
                 {% for category in categories %}
                     <li class="list-group-item">
                         <span class="badge">{{ category.getCountPosts() }}</span>
-                        <a href="{{ url('homepage') }}category/{{ category.slug }}">{{ category.title }}</a>
+                        <a href="{{ url('homepage') }}category/{{ category.slug }}">{{ category.title | capitalize }}</a>
                     </li>
                 {% endfor %}
             </ul>
 
-            <h2>Options</h2>
-
-            <ul class="list-group">
-                {% if app.user and is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            {% if app.user and is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <h2>Admin</h2>
+                <ul class="list-group">
                     <li class="list-group-item">
                         <a href="{{ url('new_post') }}">New post</a>
                     </li>
                     <li class="list-group-item">
                         <a href="{{ url('fos_user_security_logout') }}">Logout</a>
                     </li>
-                {% else %}
-                    <li class="list-group-item">
-                        <a href="{{ url('fos_user_security_login') }}">Login</a>
-                    </li>
-                {% endif %}
-            </ul>
+                </ul>
+            {% endif %}
         </div>
     </div>
 </div>

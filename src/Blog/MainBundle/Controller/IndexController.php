@@ -156,4 +156,20 @@ class IndexController extends BaseController
             )
         );
     }
+
+    /**
+     * @Route("/view/{postId}", name="view_post")
+     * @Template("BlogMainBundle:Index:viewPost.html.twig")
+     */
+    public function viewPostAction(Request $request, $postId)
+    {
+        $postService = $this->getPostService();
+        $post = $postService->getPostById($postId);
+
+        return $this->createResponseArray(
+            array(
+                'article' => $post,
+            )
+        );
+    }
 }
