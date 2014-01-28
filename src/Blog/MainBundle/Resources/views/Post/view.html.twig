@@ -25,7 +25,7 @@
     </div>
     <div class="row post">
         <div class="col-lg-12">
-            <div class="fb-comments" data-href="{{ url('view_post', { 'postId': post.id }) }}" data-numposts="5" data-colorscheme="light"></div>
+            <div class="fb-comments" data-href="{{ url('view_post', { 'postId': post.id, 'slug': post.slug }) }}" data-numposts="5" data-colorscheme="light"></div>
         </div>
     </div>
 {% endblock %}

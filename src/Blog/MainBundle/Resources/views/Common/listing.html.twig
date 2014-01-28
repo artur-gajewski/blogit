@@ -5,7 +5,7 @@
         <div class="row post">
             <div class="col-lg-12">
                 <div>
-                    <h3><a href="{{ url('view_post', { 'postId': post.id }) }}">{{ post.title }}</a></h3>
+                    <h3><a href="{{ url('view_post', { 'postId': post.id, 'slug': post.slug }) }}">{{ post.title }}</a></h3>
                 </div>
                 <div>
                     <h6>
@@ -15,7 +15,7 @@
                         {% endif %}
                     </h6>
                     <h6>
-                        <a href="{{ url('view_post', { 'postId': post.id }) }}"><fb:comments-count href={{ url('view_post', { 'postId': post.id }) }}></fb:comments-count> comments</a>
+                        <a href="{{ url('view_post', { 'postId': post.id, 'slug': post.slug }) }}"><fb:comments-count href={{ url('view_post', { 'postId': post.id, 'slug': post.slug }) }}></fb:comments-count> comments</a>
                     </h6>
                     {% if app.user and is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                         <a href="{{ url('edit_post', { 'postId': post.id }) }}" class="btn btn-primary btn-xs">Edit post</a>

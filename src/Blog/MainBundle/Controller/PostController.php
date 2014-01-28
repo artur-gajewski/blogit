@@ -103,10 +103,10 @@ class PostController extends BaseController
     }
 
     /**
-     * @Route("/post/{postId}", name="view_post")
+     * @Route("/post/{postId}/{slug}", name="view_post")
      * @Template("BlogMainBundle:Post:view.html.twig")
      */
-    public function viewPostAction(Request $request, $postId)
+    public function viewPostAction(Request $request, $postId, $slug)
     {
         $postService = $this->getPostService();
         $post = $postService->getPostById($postId);
