@@ -58,6 +58,7 @@ Connect to your database and run these commands:
 then run the following commands:
 
     $ app/console doctrine:database:create
+    $ app/console doctrine:schema:update --force
 
 #Themes
 
