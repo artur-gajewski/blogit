@@ -11,7 +11,7 @@
                     <h6>
                         {{ post.created | date('M d, Y') }}
                         {% if show_category == true %}
-                        in <a href="{{ url('homepage') }}category/{{ post.category.slug }}">{{ post.category.title | capitalize }}</a>
+                        - in <a href="{{ url('homepage') }}category/{{ post.category.slug }}">{{ post.category.title | capitalize }}</a>
                         {% endif %}
                     </h6>
                     <h6>

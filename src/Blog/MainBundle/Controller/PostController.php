@@ -113,6 +113,7 @@ class PostController extends BaseController
 
         return $this->createResponseArray(
             array(
+                'show_category' => true,
                 'post' => $post,
             )
         );
