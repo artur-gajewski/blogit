@@ -44,7 +44,7 @@ class PostService
     }
 
     /**
-     * @return array
+     * @return array Post
      */
     public function getPosts()
     {
@@ -105,5 +105,18 @@ class PostService
         $this->em->flush();
 
         return $post;
+    }
+
+    /**
+     * @param $string
+     * @return array Post
+     */
+    public function search($string)
+    {
+        $string = '%' . $string . '%';
+        $query = $this->em->createQuery("SELECT p FROM Blog\MainBundle\Entity\Blog\Post p WHERE p.title LIKE :search or p.content LIKE :search");
+        $query->setParameter("search", $string);
+
+        return $query->getResult();
     }
 }

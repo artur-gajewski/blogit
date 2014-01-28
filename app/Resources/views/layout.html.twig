@@ -23,11 +23,17 @@
         <div class="navbar-header">
             <a href="{{ path('homepage') }}" class="navbar-brand">{{ blog_title }}</a>
         </div>
+        <div class="navbar-collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <form action="{{ path('search') }}" method="POST" class="navbar-form navbar-right">
+                    <input type="text" name="searchPhrase" class="form-control col-lg-8" placeholder="Search">
+                </form>
+            </ul>
+        </div>
     </div>
 </div>
 
 <div class="container page">
-
     <main class="bs-masthead" id="content" role="main">
         {% if app.user and is_granted("IS_AUTHENTICATED_REMEMBERED") %}
             <h1>Hello, {{ app.user }}</h1>
@@ -44,7 +50,7 @@
             {{ message }}
         </div>
     {% endfor %}
-    
+
     <ul class="breadcrumb" style="margin-bottom: 5px;">
         <li><a href="{{ path('homepage') }}">Home</a></li>
         {% block section %}

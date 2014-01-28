@@ -38,6 +38,33 @@ class ListingController extends BaseController
     }
 
     /**
+     * @Route("/search", name="search")
+     * @Template("BlogMainBundle:Common:listing.html.twig")
+     */
+    public function searchAction(Request $request)
+    {
+        $postService = $this->getPostService();
+        $searchPhrase = $request->get('searchPhrase');
+
+        $posts = $postService->search($searchPhrase);
+        $posts = array_reverse($posts);
+
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $posts,
+            $this->get('request')->query->get('page', 1) /*page number*/,
+            5 /*limit per page*/
+        );
+
+        return $this->createResponseArray(
+            array(
+                'show_category' => false,
+                'pagination' => $pagination,
+            )
+        );
+    }
+
+    /**
      * @Route("/category/{slug}", name="category")
      * @Template("BlogMainBundle:Common:listing.html.twig")
      */
