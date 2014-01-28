@@ -274,6 +274,14 @@ class Post
         // lowercase
         $text = strtolower($text);
 
+        // Change scandic characters to stripped ones
+        $text = str_replace('å', 'a', $text);
+        $text = str_replace('Å', 'a', $text);
+        $text = str_replace('ä', 'a', $text);
+        $text = str_replace('Ä', 'a', $text);
+        $text = str_replace('ö', 'o', $text);
+        $text = str_replace('Ö', 'o', $text);
+
         // remove unwanted characters
         $text = preg_replace('#[^-\w]+#', '', $text);
 
