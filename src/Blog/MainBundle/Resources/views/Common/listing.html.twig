@@ -14,6 +14,9 @@
                         in <a href="{{ url('homepage') }}category/{{ post.category.slug }}">{{ post.category.title | capitalize }}</a>
                         {% endif %}
                     </h6>
+                    <h6>
+                        <a href="{{ url('view_post', { 'postId': post.id }) }}"><fb:comments-count href={{ url('view_post', { 'postId': post.id }) }}></fb:comments-count> comments</a>
+                    </h6>
                     {% if app.user and is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                         <a href="{{ url('edit_post', { 'postId': post.id }) }}" class="btn btn-primary btn-xs">Edit post</a>
                         <a href="{{ url('delete_post', { 'postId': post.id }) }}" class="btn btn-danger btn-xs">Delete post</a>
