@@ -113,10 +113,12 @@ class PostService
      */
     public function search($string)
     {
-        $string = '%' . $string . '%';
+        $stringForTitle = '%' . $string . '%';
+        $stringForContent = '%' . htmlentities($string) . '%';
+
         $query = $this->em->createQuery("SELECT p FROM Blog\MainBundle\Entity\Blog\Post p WHERE p.title LIKE :search_title or p.content LIKE :search_content");
-        $query->setParameter("search_title", $string);
-        $query->setParameter("search_content", $string);
+        $query->setParameter("search_title", $stringForTitle);
+        $query->setParameter("search_content", $stringForContent);
         return $query->getResult();
     }
 }
