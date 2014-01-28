@@ -53,6 +53,14 @@ a:hover {
 }
 
 @media (max-width: 767px) {
+    .page {
+        margin-top: 145px;
+    }
+
+    .bs-masthead {
+        margin-bottom: 30px;
+    }
+
     .form-container {
         margin-top: 10px;
     }
@@ -74,20 +82,16 @@ a:hover {
 }
 
 @media (min-width: 1200px) {
+    .page {
+        margin-top: 80px;
+    }
+
     .container {
         width: 85%;
     }
 }
 
 @media (max-width: 1200px) {
-    .page {
-        margin-top: 145px;
-    }
-
-    .bs-masthead {
-        margin-bottom: 30px;
-    }
-
     .post {
         margin-bottom: 0px;
     }
