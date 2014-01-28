@@ -59,36 +59,15 @@ then run the following commands:
 
     $ app/console doctrine:database:create
 
-#Database migrations
+#Themes
 
-This app comes bundled with Doctrine Migrations bundle, which simplifies the
-process of keeping database structure in sync with multiple developers and
-production environment.
+BlogIt comes bundles with numerous Bootsrap 3 themes. In order to change the themes, modify the blog_theme variable in
+parameters.yml configuration file taht reflect the folder name present in web/bundles/blogmain/themes folder.
 
-Migrations bundle checks the structure of your entities and does it's magic
-based on that information.
+Each theme has its own CSS folder that contains the bootstrap.css file that builds the complete layout and theme.css
+which are meant to override certain components in the bootstrap.css definitions.
 
-First let's create database based on the values in app/config/parameters.yml file.
-
-    $ app/console doctrine:database:create
-
-After you have created the database, you need to create schema into it. Since we are
-using Doctrine migrations, we use the console tool to create the schema from the
-migrations files.
-
-    $ app/console doctrine:migrations:migrate
-
-New migration scripts appear when you pull new code from Github. To see if there
-are any new migrations required for you to run in your current code version, you need to check the status.
-
-    $ app/console doctrine:migrations:status
-
-If you see new migrations available, all you have to do is run the migrations again.
-
-    $ app/console doctrine:migrations:migrate
-
-You should now have your database in an updated state with up-to-date structure
-that corresponds with application's entity classes.
+Themes are kindly provided by Thomas Park and his wonderful project at www.bootswatch.com
 
 #Assets
 
