@@ -11,7 +11,11 @@ BlogIt is an open source blog engine alternative to Blogger and Wordpress and is
 
 #Installation
 
-Fork the project into your Github account and then clone it into your development environment.
+To install BlogIt to your server, go to desired folder of installation and clone the project from Github:
+
+    $ git clone git@github.com:artur-gajewski/blogit.git
+
+If you want to contribute to the project, please fork it into your Github account and then clone it into your development environment.
 
     $ git clone git@github.com:YOUR_GIT_ACCOUNT_NAME/blogit.git
 
