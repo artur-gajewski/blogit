@@ -85,6 +85,11 @@ Enter required information and after the console is done creating your user you 
 the end of the main page's URL. So if your blog is installed at www.blogit-site.com then the access point to user login will
 be www.blogit-site.com/login
 
+#Usage
+
+If you end up installing your own instance of BlogIt, I kindly ask you to send me a quick note about it. I would love
+to see this blog engine in action some where in the world :)
+
 #Contributing
 
 We welcome any developers with various skills and background. Anyone is free to join the team and develop BlogIt.
