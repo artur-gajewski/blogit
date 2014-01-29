@@ -23,10 +23,8 @@ class PostController extends BaseController
 
         if ($request->getMethod() == 'POST') {
             $post = new Post();
-
-            $post->setStatus($request->get('status'));
-
             $post->setTitle($request->get('title'));
+            $post->setStatus($request->get('status'));
 
             $category = $categoryService->getCategoryById($request->get('category'));
             $post->setCategory($category);
@@ -65,6 +63,9 @@ class PostController extends BaseController
         if ($request->getMethod() == 'POST') {
             $post->setTitle($request->get('title'));
             $post->setStatus($request->get('status'));
+
+            $newDate = new \DateTime($request->get('created'));
+            $post->setCreated($newDate);
 
             $category = $categoryService->getCategoryById($request->get('category'));
             $post->setCategory($category);
