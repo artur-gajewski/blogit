@@ -24,6 +24,8 @@ class PostController extends BaseController
         if ($request->getMethod() == 'POST') {
             $post = new Post();
 
+            $post->setStatus($request->get('status'));
+
             $post->setTitle($request->get('title'));
 
             $category = $categoryService->getCategoryById($request->get('category'));
@@ -32,10 +34,17 @@ class PostController extends BaseController
             $post->setContent($request->get('content'));
             $postService->savePost($post);
 
-            $this->get('session')->getFlashBag()->add(
-                'info',
-                'New post has been saved!'
-            );
+            if ($post->getStatus() == 1) {
+                $this->get('session')->getFlashBag()->add(
+                    'info',
+                    'New post has been saved!'
+                );
+            } elseif ($post->getStatus() == 2) {
+                $this->get('session')->getFlashBag()->add(
+                    'warning',
+                    'Post has been saved, but is has not been published yet!'
+                );
+            }
 
             return $this->redirect($this->generateUrl('homepage'));
         }
@@ -55,6 +64,7 @@ class PostController extends BaseController
 
         if ($request->getMethod() == 'POST') {
             $post->setTitle($request->get('title'));
+            $post->setStatus($request->get('status'));
 
             $category = $categoryService->getCategoryById($request->get('category'));
             $post->setCategory($category);
@@ -115,6 +125,30 @@ class PostController extends BaseController
             array(
                 'show_category' => true,
                 'post' => $post,
+            )
+        );
+    }
+
+    /**
+     * @Route("/admin/unpublished", name="list_unpublished_posts")
+     * @Template("BlogMainBundle:Post:unpublished.html.twig")
+     */
+    public function unpublishedPostsAction(Request $request)
+    {
+        $postService = $this->getPostService();
+        $posts = $postService->getUnpublishedPosts();
+        $posts = array_reverse($posts);
+
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $posts,
+            $this->get('request')->query->get('page', 1) /*page number*/,
+            5 /*limit per page*/
+        );
+
+        return $this->createResponseArray(
+            array(
+                'pagination' => $pagination,
             )
         );
     }

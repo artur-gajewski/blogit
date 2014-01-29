@@ -49,7 +49,18 @@ class PostService
     public function getPosts()
     {
         return $this->repository->findBy(
-            array(),
+            array('status' => 1),
+            array('created' => 'ASC')
+        );
+    }
+
+    /**
+     * @return array Post
+     */
+    public function getUnpublishedPosts()
+    {
+        return $this->repository->findBy(
+            array('status' => 2),
             array('created' => 'ASC')
         );
     }
@@ -60,7 +71,10 @@ class PostService
     public function getPostsByCategory($category)
     {
         return $this->repository->findBy(
-            array('category' => $category),
+            array(
+                'category' => $category,
+                'status' => 1
+            ),
             array('created' => 'ASC')
         );
     }
@@ -120,7 +134,7 @@ class PostService
         $searchPhrase = '%' . $string . '%';
 
         $query = $this->em->createQuery(
-            "SELECT p FROM Blog\MainBundle\Entity\Blog\Post p WHERE p.title LIKE :search_title or p.content LIKE :search_content ORDER BY p.created"
+            "SELECT p FROM Blog\MainBundle\Entity\Blog\Post p WHERE p.status = 1 AND (p.title LIKE :search_title or p.content LIKE :search_content) ORDER BY p.created"
         );
 
         $query->setParameter("search_title", $searchPhrase);

@@ -109,13 +109,20 @@ class Category
     }
 
     /**
-     * Return count of posts
+     * Return count of published posts
      *
      * @return integer
      */
     public function getCountPosts()
     {
-        return count($this->posts);
+        $published = 0;
+
+        foreach($this->posts as $post) {
+            if ($post->getStatus() == 1) {
+                $published++;
+            }
+        }
+        return $published;
     }
 
     /**

@@ -61,6 +61,13 @@
         </div>
     {% endfor %}
 
+    {% for message in app.session.getFlashBag.get('warning') %}
+        <div class="alert alert-dismissable alert-warning">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            {{ message }}
+        </div>
+    {% endfor %}
+
     <ul class="breadcrumb" style="margin-bottom: 5px;">
         <li><a href="{{ path('homepage') }}">Home</a></li>
         {% block section %}
@@ -99,6 +106,7 @@
                     {% if app.user and is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                         {% if categories | length > 0 %}
                             <a class="list-group-item" href="{{ url('new_post') }}">&raquo; New post</a>
+                            <a class="list-group-item" href="{{ url('list_unpublished_posts') }}">&raquo; Unpublished posts</a>
                         {% endif %}
                         <a class="list-group-item" href="{{ url('list_categories') }}">&raquo; Categories</a>
                         <a class="list-group-item" href="{{ url('fos_user_security_logout') }}">&raquo; Logout</a>
