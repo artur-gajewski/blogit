@@ -58,6 +58,10 @@ Connect to your database and run these commands:
 then run the following commands:
 
     $ app/console doctrine:database:create
+    
+Finally, you will have to create the database schema for the BlogIt:
+
+    $ app/console doctrine:schema:create
 
 #Themes
 
