@@ -38,9 +38,9 @@ class PostService
         PostRepository      $repository,
         SecurityContext     $security)
     {
-        $this->em               = $em;
-        $this->repository       = $repository;
-        $this->security         = $security;
+        $this->em         = $em;
+        $this->repository = $repository;
+        $this->security   = $security;
     }
 
     /**
@@ -48,7 +48,10 @@ class PostService
      */
     public function getPosts()
     {
-        return $this->repository->findAll();
+        return $this->repository->findBy(
+            array(),
+            array('created' => 'ASC')
+        );
     }
 
     /**
@@ -57,7 +60,8 @@ class PostService
     public function getPostsByCategory($category)
     {
         return $this->repository->findBy(
-            array('category' => $category)
+            array('category' => $category),
+            array('created' => 'ASC')
         );
     }
 
@@ -115,9 +119,13 @@ class PostService
     {
         $searchPhrase = '%' . $string . '%';
 
-        $query = $this->em->createQuery("SELECT p FROM Blog\MainBundle\Entity\Blog\Post p WHERE p.title LIKE :search_title or p.content LIKE :search_content");
+        $query = $this->em->createQuery(
+            "SELECT p FROM Blog\MainBundle\Entity\Blog\Post p WHERE p.title LIKE :search_title or p.content LIKE :search_content ORDER BY p.created"
+        );
+
         $query->setParameter("search_title", $searchPhrase);
         $query->setParameter("search_content", $searchPhrase);
+
         return $query->getResult();
     }
 }

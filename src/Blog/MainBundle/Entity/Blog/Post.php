@@ -53,14 +53,14 @@ class Post
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="created", type="datetimetz")
+     * @ORM\Column(name="created", type="datetime")
      */
     private $created;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="modified", type="datetimetz")
+     * @ORM\Column(name="modified", type="datetime")
      */
     private $modified;
 

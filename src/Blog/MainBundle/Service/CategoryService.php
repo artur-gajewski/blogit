@@ -38,9 +38,9 @@ class CategoryService
         CategoryRepository  $repository,
         SecurityContext     $security)
     {
-        $this->em               = $em;
-        $this->repository       = $repository;
-        $this->security         = $security;
+        $this->em         = $em;
+        $this->repository = $repository;
+        $this->security   = $security;
     }
 
     /**
@@ -48,7 +48,10 @@ class CategoryService
      */
     public function getCategories()
     {
-        return $this->repository->findAll();
+        return $this->repository->findBy(
+            array(),
+            array('title' => 'ASC')
+        );
     }
 
     /**
