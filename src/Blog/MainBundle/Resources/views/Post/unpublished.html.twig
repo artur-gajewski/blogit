@@ -22,7 +22,7 @@
                     <tbody>
                     {% for post in pagination %}
                         <tr>
-                            <td>{{ post.title | capitalize }}</td>
+                            <td>{{ post.title }}</td>
                             <td>{{ post.slug }}</td>
                             <td>{{ post.created | date('M d, Y') }}</td>
                             <td>
