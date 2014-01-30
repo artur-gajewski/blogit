@@ -9,6 +9,7 @@
 
     <div class="row post">
         <div class="col-lg-12">
+
             <div>
                 <h3>{{ post.title }}</h3>
             </div>
@@ -19,23 +20,17 @@
                         - in <a href="{{ url('homepage') }}category/{{ post.category.slug }}">{{ post.category.title | capitalize }}</a>
                     {% endif %}
                 </h6>
-            </div>
 
-            {% if post.status == 2 %}
-            <div>
-                <span class="label label-warning">Unpublished</span>
+                {% if app.user and is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <div>
+                        <a href="{{ url('edit_post', { 'postId': post.id }) }}" class="btn btn-{% if post.status == 2 %}warning{% else %}primary{% endif %} btn-xs">Edit post</a>
+                    </div>
+                {% endif %}
             </div>
-            {% endif %}
 
             <div class="content">
                 {{ post.content | raw }}
             </div>
-
-            {% if post.status == 2 %}
-                <div>
-                    <a href="{{ url('edit_post', { 'postId': post.id }) }}" class="btn btn-primary btn-xs">Edit post</a>
-                </div>
-            {% endif %}
         </div>
     </div>
     <div class="row facebook-comments">

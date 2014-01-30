@@ -45,7 +45,12 @@ class PostController extends BaseController
                 );
             }
 
-            return $this->redirect($this->generateUrl('homepage'));
+            return $this->redirect(
+                $this->generateUrl('view_post', array(
+                    'postId' => $post->getId(),
+                    'slug' => $post->getSlug(),
+                ))
+            );
         }
 
         return $this->createResponseArray();
@@ -77,6 +82,13 @@ class PostController extends BaseController
             $this->get('session')->getFlashBag()->add(
                 'info',
                 'Your changes were saved!'
+            );
+
+            return $this->redirect(
+                $this->generateUrl('view_post', array(
+                    'postId' => $post->getId(),
+                    'slug' => $post->getSlug(),
+                ))
             );
         }
 
@@ -148,7 +160,6 @@ class PostController extends BaseController
     {
         $postService = $this->getPostService();
         $posts = $postService->getUnpublishedPosts();
-        $posts = array_reverse($posts);
 
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(

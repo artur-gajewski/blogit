@@ -13,11 +13,14 @@ class BaseController extends Controller
     public function createResponseArray($array = null)
     {
         $categoryService = $this->getCategoryService();
+        $postService = $this->getPostService();
 
         $categories = $categoryService->getCategories();
+        $unpublished = $postService->getUnpublishedPosts();
 
         $common =  array(
             'categories' => $categories,
+            'unpublished' => $unpublished,
         );
 
         if (!empty($array)) {

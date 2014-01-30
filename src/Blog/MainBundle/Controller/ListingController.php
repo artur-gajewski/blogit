@@ -20,7 +20,30 @@ class ListingController extends BaseController
     {
         $postService = $this->getPostService();
         $posts = $postService->getPosts();
-        $posts = array_reverse($posts);
+
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $posts,
+            $this->get('request')->query->get('page', 1) /*page number*/,
+            5 /*limit per page*/
+        );
+
+        return $this->createResponseArray(
+            array(
+                'show_category' => true,
+                'pagination' => $pagination,
+            )
+        );
+    }
+
+    /**
+     * @Route("/ordered", name="ordered")
+     * @Template("BlogMainBundle:Common:listing.html.twig")
+     */
+    public function orderedAction()
+    {
+        $postService = $this->getPostService();
+        $posts = $postService->getPosts('ASC');
 
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
@@ -47,7 +70,6 @@ class ListingController extends BaseController
         $searchPhrase = $request->get('searchPhrase');
 
         $posts = $postService->search($searchPhrase);
-        $posts = array_reverse($posts);
 
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
@@ -77,7 +99,6 @@ class ListingController extends BaseController
         $category = $categoryService->getCategoryBySlug($slug);
 
         $posts = $postService->getPostsByCategory($category);
-        $posts = array_reverse($posts);
 
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(

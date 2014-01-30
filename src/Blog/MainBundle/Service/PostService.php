@@ -46,11 +46,11 @@ class PostService
     /**
      * @return array Post
      */
-    public function getPosts()
+    public function getPosts($order = 'DESC')
     {
         return $this->repository->findBy(
             array('status' => 1),
-            array('created' => 'ASC')
+            array('created' => $order)
         );
     }
 
@@ -61,7 +61,7 @@ class PostService
     {
         return $this->repository->findBy(
             array('status' => 2),
-            array('created' => 'ASC')
+            array('created' => 'DESC')
         );
     }
 
@@ -75,7 +75,7 @@ class PostService
                 'category' => $category,
                 'status' => 1
             ),
-            array('created' => 'ASC')
+            array('created' => 'DESC')
         );
     }
 
@@ -134,7 +134,7 @@ class PostService
         $searchPhrase = '%' . $string . '%';
 
         $query = $this->em->createQuery(
-            "SELECT p FROM Blog\MainBundle\Entity\Post p WHERE p.status = 1 AND (p.title LIKE :search_title or p.content LIKE :search_content) ORDER BY p.created"
+            "SELECT p FROM Blog\MainBundle\Entity\Post p WHERE p.status = 1 AND (p.title LIKE :search_title or p.content LIKE :search_content) ORDER BY p.created DESC"
         );
 
         $query->setParameter("search_title", $searchPhrase);

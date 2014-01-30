@@ -87,6 +87,7 @@
             <h2>Listings</h2>
             <div class="list-group">
                 <a class="list-group-item" href="{{ url('homepage') }}">&raquo; Latest posts</a>
+                <a class="list-group-item" href="{{ url('ordered') }}">&raquo; Chronological order</a>
             </div>
 
             <h2>Categories</h2>
@@ -107,7 +108,10 @@
                     {% if app.user and is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                         {% if categories | length > 0 %}
                             <a class="list-group-item" href="{{ url('new_post') }}">&raquo; New post</a>
-                            <a class="list-group-item" href="{{ url('list_unpublished_posts') }}">&raquo; Unpublished posts</a>
+                            <a class="list-group-item" href="{{ url('list_unpublished_posts') }}">
+                                &raquo; Unpublished posts
+                                <span class="badge">{{ unpublished | length }}</span>
+                            </a>
                         {% endif %}
                         <a class="list-group-item" href="{{ url('list_categories') }}">&raquo; Categories</a>
                         <a class="list-group-item" href="{{ url('fos_user_security_logout') }}">&raquo; Logout</a>

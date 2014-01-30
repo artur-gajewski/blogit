@@ -17,9 +17,6 @@
                     <h6>
                         <a href="{{ url('view_post', { 'postId': post.id, 'slug': post.slug }) }}"><fb:comments-count href={{ url('view_post', { 'postId': post.id, 'slug': post.slug }) }}></fb:comments-count> comments</a>
                     </h6>
-                    {% if app.user and is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                        <a href="{{ url('edit_post', { 'postId': post.id }) }}" class="btn btn-primary btn-xs">Edit post</a>
-                    {% endif %}
                 </div>
                 <div class="content">
                     {{ post.content | raw }}

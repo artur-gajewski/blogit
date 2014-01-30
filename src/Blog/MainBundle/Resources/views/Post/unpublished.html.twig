@@ -23,7 +23,6 @@
                             <td>{{ post.title }}<br/>{{ post.created | date('M d, Y') }}</td>
                             <td class="admin-options">
                                 <a href="{{ url('edit_post', { 'postId': post.id }) }}"class="btn btn-info btn-sm">Edit</a>
-                                <a href="{{ url('delete_post', { 'postId': post.id }) }}"class="btn btn-danger btn-sm">Delete</a>
                                 <a href="{{ url('view_post', { 'postId': post.id, 'slug': post.slug }) }}"class="btn btn-primary btn-sm">View</a>
                             </td>
                         </tr>
