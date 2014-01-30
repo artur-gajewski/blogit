@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-use Blog\MainBundle\Entity\Blog\Post;
+use Blog\MainBundle\Entity\Post;
 
 class PostController extends BaseController
 {

@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-use Blog\MainBundle\Entity\Blog\Post;
+use Blog\MainBundle\Entity\Post;
 
 class ListingController extends BaseController
 {

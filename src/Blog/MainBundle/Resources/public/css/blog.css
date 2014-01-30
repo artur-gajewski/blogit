@@ -53,6 +53,10 @@ a:hover {
     margin-top: 15px;
 }
 
+.admin-options {
+    min-width: 200px;
+}
+
 #footer {
     height: 50px;
 }
