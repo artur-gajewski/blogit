@@ -57,6 +57,10 @@ a:hover {
     min-width: 200px;
 }
 
+.facebook-comments {
+    margin-top: 15px;
+}
+
 #footer {
     height: 50px;
 }
