@@ -52,6 +52,7 @@
                 <div class="form-group">
                     <div class="col-lg-10 col-lg-offset-2">
                         <button type="submit" id="submit" name="submit" class="btn btn-primary">Modify</button>
+                        <a href="{{ url('delete_post', { 'postId': post.id }) }}" class="btn btn-danger">Delete</a>
                     </div>
                 </div>
             </fieldset>

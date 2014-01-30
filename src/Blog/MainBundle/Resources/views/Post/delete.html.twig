@@ -22,11 +22,9 @@
                     <h3>{{ post.title }}</h3>
                 </div>
                 <div>
-                    <h4>
-                        <span class="label label-default">
-                            {{ post.created | date('M d, Y') }}
-                        </span>
-                    </h4>
+                    <h6>
+                        {{ post.created | date('M d, Y') }}
+                    </h6>
                 </div>
                 <div class="content">
                     {{ post.content | raw }}
