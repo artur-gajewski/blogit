@@ -2,9 +2,9 @@
 
 namespace Blog\MainBundle\Service;
 
-use Blog\MainBundle\Entity\Blog\Category;
+use Blog\MainBundle\Entity\Category;
 
-use Blog\MainBundle\Entity\Blog\CategoryRepository;
+use Blog\MainBundle\Entity\CategoryRepository;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Security\Core\SecurityContext;

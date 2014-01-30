@@ -2,9 +2,9 @@
 
 namespace Blog\MainBundle\Service;
 
-use Blog\MainBundle\Entity\Blog\Post;
+use Blog\MainBundle\Entity\Post;
 
-use Blog\MainBundle\Entity\Blog\PostRepository;
+use Blog\MainBundle\Entity\PostRepository;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Security\Core\SecurityContext;
@@ -134,7 +134,7 @@ class PostService
         $searchPhrase = '%' . $string . '%';
 
         $query = $this->em->createQuery(
-            "SELECT p FROM Blog\MainBundle\Entity\Blog\Post p WHERE p.status = 1 AND (p.title LIKE :search_title or p.content LIKE :search_content) ORDER BY p.created"
+            "SELECT p FROM Blog\MainBundle\Entity\Post p WHERE p.status = 1 AND (p.title LIKE :search_title or p.content LIKE :search_content) ORDER BY p.created"
         );
 
         $query->setParameter("search_title", $searchPhrase);

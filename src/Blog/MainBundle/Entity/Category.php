@@ -1,6 +1,6 @@
 <?php
 
-namespace Blog\MainBundle\Entity\Blog;
+namespace Blog\MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Category
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Blog\MainBundle\Entity\Blog\CategoryRepository")
+ * @ORM\Entity(repositoryClass="Blog\MainBundle\Entity\CategoryRepository")
  */
 class Category
 {
