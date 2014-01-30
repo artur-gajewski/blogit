@@ -22,7 +22,7 @@
 <div>
     <ul class="pagination">
         {% if previous is defined %}
-            <li><a href="{{ path(route, query|merge({(pageParameterName): previous})) }}">Newer posts</a></li>
+            <li><a href="{{ path(route, query|merge({(pageParameterName): previous})) }}">Previous page</a></li>
         {% endif %}
 
         {% for page in pagesInRange %}
@@ -34,7 +34,7 @@
         {% endfor %}
 
         {% if next is defined %}
-            <li><a href="{{ path(route, query|merge({(pageParameterName): next})) }}">Older posts</a></li>
+            <li><a href="{{ path(route, query|merge({(pageParameterName): next})) }}">Next page</a></li>
         {% endif %}
 
     </ul>
