@@ -3,7 +3,7 @@
 namespace Blog\MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Blog\MainBundle\Entity\Blog\Category;
+use Blog\MainBundle\Entity\Category;
 
 /**
  * Post

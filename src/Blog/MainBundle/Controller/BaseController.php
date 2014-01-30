@@ -42,4 +42,19 @@ class BaseController extends Controller
     {
         return $this->container->get('blog_main.service.category');
     }
+
+    public function renderPostNotFound()
+    {
+        $categoryService = $this->getCategoryService();
+
+        $categories = $categoryService->getCategories();
+
+        $common =  array(
+            'categories' => $categories,
+        );
+
+        return $this->render('BlogMainBundle:Post:notfound.html.twig',
+            $common
+        );
+    }
 }
