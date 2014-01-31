@@ -7,11 +7,11 @@ From: Tuusula, Finland
 
 /* THANKS */
 
--> Team Fraktio @ www.fraktio.fi
+Team Fraktio @ www.fraktio.fi
 
--> Mahtava Kalle Lamminpää for implementing Vagrant with Ansible
+Mahtava Kalle Lamminpää for implementing Vagrant with Ansible
 
--> Thomas Park for providing wonderful Bootstrap 3 themes at www.bootswatch.com
+Thomas Park for providing wonderful Bootstrap 3 themes at www.bootswatch.com
 
 /* SITE */
 
