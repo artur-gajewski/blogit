@@ -11,6 +11,8 @@ From: Tuusula, Finland
 
 -> Mahtava Kalle Lamminpää for implementing Vagrant with Ansible
 
+-> Thomas Park for providing wonderful Bootstrap 3 themes at www.bootswatch.com
+
 /* SITE */
 
 Language: Finnish / English
