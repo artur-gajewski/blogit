@@ -20,7 +20,11 @@
                     <tbody>
                     {% for post in pagination %}
                         <tr>
-                            <td>{{ post.title }}<br/>{{ post.created | date('M') | trans }} {{ post.created | date('d, Y') }}</td>
+                            <td>
+                                {{ post.title }}<br/>
+                                {% set post_created_key = "months." ~ (post.created | date('M') ) %}
+                                {{ post_created_key | trans }} {{ post.created | date('j, Y') }}
+                            </td>
                             <td class="admin-options">
                                 <a href="{{ url('edit_post', { 'postId': post.id }) }}"class="btn btn-info btn-sm">{{ "unpublished.edit" | trans }}</a>
                                 <a href="{{ url('view_post', { 'postId': post.id, 'slug': post.slug }) }}"class="btn btn-primary btn-sm">{{ "unpublished.view" | trans }}</a>
