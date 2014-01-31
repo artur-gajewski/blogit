@@ -22,7 +22,7 @@
 <div>
     <ul class="pagination">
         {% if previous is defined %}
-            <li><a href="{{ path(route, query|merge({(pageParameterName): previous})) }}"{{ "listing.previous_page" | trans }}</a></li>
+            <li><a href="{{ path(route, query|merge({(pageParameterName): previous})) }}">{{ "listing.previous_page" | trans }}</a></li>
         {% endif %}
 
         {% for page in pagesInRange %}
