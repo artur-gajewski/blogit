@@ -154,6 +154,13 @@ common:
     post_deleted: "Post has been deleted!"
 
 ### Error ###
-
 error:
     post_not_found: "Requested post is currently unavailable."
+
+### Login ###
+fos:
+    login: "Login"
+    username: "Username"
+    password: "Password"
+    remember: "Remember me"
+    error: "Invalid username or password"

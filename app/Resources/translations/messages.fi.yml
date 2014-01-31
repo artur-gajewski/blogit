@@ -153,5 +153,14 @@ common:
     category_deleted: "Uusi kategoria on nyt luotu!"
     post_deleted: "Kirjoitus on nyt poistettu!"
 
+### Error ####
 error:
     post_not_found: "Haettua kirjoitusta ei voi avata."
+
+### Login ###
+fos:
+    login: "Kirjaudu sisään"
+    username: "Tunnus"
+    password: "Salasana"
+    remember: "Muista kirjautuminen"
+    error: "Väärä tunnus tai salasana"

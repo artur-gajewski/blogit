@@ -1,43 +1,45 @@
 {% extends "::blank.html.twig" %}
 
-{% trans_default_domain 'FOSUserBundle' %}
-
 {% block page_content %}
-
-{% if error %}
-    {{ error|trans }}
-{% endif %}
 
 <div class="container">
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2">
 
-            <h2>Login</h2>
+            <h2>{{ "fos.login" | trans }}</h2>
+
+            {% if error %}
+                <div class="alert alert-dismissable alert-danger">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    {{ "fos.error" | trans }}
+                </div>
+
+            {% endif %}
 
             <div class="well">
                 <form action="{{ path("fos_user_security_check") }}" method="post" class="bs-example form-horizontal">
                     <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
                     <fieldset>
                         <div class="form-group">
-                            <label for="username" class="col-lg-2 control-label">Username</label>
+                            <label for="username" class="col-lg-2 control-label">{{ "fos.username" | trans }}</label>
                             <div class="col-lg-10">
-                                <input type="text" class="form-control" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="Enter your username">
+                                <input type="text" class="form-control" id="username" name="_username" value="{{ last_username }}" required="required">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+                            <label for="inputPassword" class="col-lg-2 control-label">{{ "fos.password" | trans }}</label>
                             <div class="col-lg-10">
-                                <input type="password" class="form-control" id="password" name="_password" required="required" placeholder="Enter your password">
+                                <input type="password" class="form-control" id="password" name="_password" required="required">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" id="remember_me" name="_remember_me" value="on" /> Remember me
+                                        <input type="checkbox" id="remember_me" name="_remember_me" value="on" /> {{ "fos.remember" | trans }}
                                     </label>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-lg-10 col-lg-offset-2">
-                                <button type="submit" id="_submit" name="_submit" class="btn btn-primary">Login</button>
+                                <button type="submit" id="_submit" name="_submit" class="btn btn-primary">{{ "fos.login" | trans }}</button>
                             </div>
                         </div>
                     </fieldset>
