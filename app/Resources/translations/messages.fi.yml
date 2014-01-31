@@ -41,7 +41,7 @@ listing:
 
 ### Post view ###
 post:
-    view_post: "Katso kirjoitusta"
+    view_post: "Lue kirjoitus"
     edit_post: "Muokkaa kirjoitusta"
 
 ### New post ###
