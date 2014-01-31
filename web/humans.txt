@@ -18,3 +18,7 @@ Thomas Park for providing wonderful Bootstrap 3 themes at www.bootswatch.com
 Language: Finnish / English
 Doctype: HTML5
 Tech: Apache, PHP, Symfony2, Facebook API, Bootstrap3, CKEditor
+
+/* REPOSITORY */
+
+https://github.com/artur-gajewski/blogit
