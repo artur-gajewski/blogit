@@ -9,6 +9,15 @@ BlogIt is an open source blog engine alternative to Blogger and Wordpress and is
 - Symfony2
 - MySQL
 
+#Features
+
+- Multilingual UI, currently English and Finnish
+- Support for multiple users
+- Administration of categories and posts
+- WYSIWYG editor
+- Many nice Bootstrap3 themes out-of-the-box
+- Facebook comments plugin
+
 #Installation
 
 To install BlogIt to your server, go to desired folder of installation and clone the project from Github:
