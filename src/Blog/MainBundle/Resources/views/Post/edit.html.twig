@@ -1,23 +1,24 @@
 {% extends "::layout.html.twig" %}
 
 {% block section %}
-    <li>Administration</li>
-    <li>Edit post</li>
+    <li>{{ "common.admin" | trans }}</li>
+    <li>{{ "edit.edit_post" | trans }}</li>
+    <li>{{ post.title }}</li>
 {% endblock %}
 
 {% block page_content %}
-    <h2>Edit post</h2>
+    <h2>{{ "edit.title" | trans }}</h2>
     <div class="form-container">
         <form action="{{ url('edit_post', { 'postId': post.id }) }}" method="post" class="bs-example form-horizontal">
             <fieldset>
                 <div class="form-group">
-                    <label for="title" class="col-lg-2 control-label">Title</label>
+                    <label for="title" class="col-lg-2 control-label">{{ "edit.post_title" | trans }}</label>
                     <div class="col-lg-10">
-                        <input type="text" class="form-control" id="title" name="title" required="required" value="{{ post.title }}" placeholder="Enter post's title">
+                        <input type="text" class="form-control" id="title" name="title" required="required" value="{{ post.title }}">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="category" class="col-lg-2 control-label">Category</label>
+                    <label for="category" class="col-lg-2 control-label">{{ "edit.post_category" | trans }}</label>
                     <div class="col-lg-10">
                         <select id="category" class="form-control" name="category">
                             {% for category in categories %}
@@ -27,32 +28,32 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="content" class="col-lg-2 control-label">Content</label>
+                    <label for="content" class="col-lg-2 control-label">{{ "edit.post_content" | trans }}</label>
                     <div class="col-lg-10">
                         <textarea id="content" name="content" class="ckeditor">{{ post.content }}</textarea>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="title" class="col-lg-2 control-label">Created</label>
+                    <label for="title" class="col-lg-2 control-label">{{ "edit.post_created" | trans }}</label>
                     <div class="col-lg-10">
-                        <input READONLY type="text" class="form-control" id="created" name="created" required="required" value="{{ post.created | date('Y-m-d') }}" placeholder="Enter post's publishing date">
+                        <input READONLY type="text" class="form-control" id="created" name="created" required="required" value="{{ post.created | date('Y-m-d') }}">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="status" class="col-lg-2 control-label">Status</label>
+                    <label for="status" class="col-lg-2 control-label">{{ "edit.post_status" | trans }}</label>
                     <div class="col-lg-10">
                         <select id="status" class="form-control" name="status">
-                            <option value="1" {% if post.status == 1 %}SELECTED{% endif %}>Published</option>
-                            <option value="2" {% if post.status == 2 %}SELECTED{% endif %}>Not published</option>
+                            <option value="1" {% if post.status == 1 %}SELECTED{% endif %}>{{ "edit.post_status_published" | trans }}</option>
+                            <option value="2" {% if post.status == 2 %}SELECTED{% endif %}>{{ "edit.post_status_not_published" | trans }}</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-lg-10 col-lg-offset-2">
-                        <button type="submit" id="submit" name="submit" class="btn btn-primary">Modify</button>
-                        <a href="{{ url('delete_post', { 'postId': post.id }) }}" class="btn btn-danger">Delete</a>
+                        <button type="submit" id="submit" name="submit" class="btn btn-primary">{{ "edit.post_modify" | trans }}</button>
+                        <a href="{{ url('delete_post', { 'postId': post.id }) }}" class="btn btn-danger">{{ "edit.post_delete" | trans }}</a>
                     </div>
                 </div>
             </fieldset>

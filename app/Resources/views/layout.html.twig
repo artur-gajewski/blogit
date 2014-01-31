@@ -37,7 +37,7 @@
         <div class="navbar-collapse navbar-responsive-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <form action="{{ path('search') }}" method="POST" class="navbar-form navbar-right">
-                    <input type="text" name="searchPhrase" class="form-control col-lg-8" placeholder="Search">
+                    <input type="text" name="searchPhrase" class="form-control col-lg-8" placeholder="{{ "common.search" | trans }}">
                 </form>
             </ul>
         </div>
@@ -47,8 +47,8 @@
 <div class="container page">
     <main class="bs-masthead" id="content" role="main">
         {% if app.user and is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-            <h1>Hello, {{ app.user }}</h1>
-            <p class="lead">You are now ready to create a new post.</p>
+            <h1>{{ "hero.hello" | trans }}, {{ app.user }}</h1>
+            <p class="lead">{{ "hero.sub" | trans }}</p>
         {% else %}
             <h1>{{ blog_hero }}</h1>
             <p class="lead">{{ blog_subhero }}</p>
@@ -70,10 +70,10 @@
     {% endfor %}
 
     <ul class="breadcrumb" style="margin-bottom: 5px;">
-        <li><a href="{{ path('homepage') }}">Home</a></li>
+        <li><a href="{{ path('homepage') }}">{{ "navigation.home" | trans }}</a></li>
         {% block section %}
             {% if current_category is defined %}
-                <li>Category</li>
+                <li>{{ "common.category" | trans }}</li>
                 <li>{{ current_category.title | capitalize }}</li>
             {% endif %}
         {% endblock %}
@@ -84,13 +84,13 @@
             {% block page_content %}{% endblock %}
         </div>
         <div class="col-sm-4">
-            <h2>Listings</h2>
+            <h2>{{ "side.listings" | trans }}</h2>
             <div class="list-group">
-                <a class="list-group-item" href="{{ url('homepage') }}">&raquo; Latest posts</a>
-                <a class="list-group-item" href="{{ url('ordered') }}">&raquo; Chronological order</a>
+                <a class="list-group-item" href="{{ url('homepage') }}">&raquo; {{ "side.latest_posts" | trans }}</a>
+                <a class="list-group-item" href="{{ url('ordered') }}">&raquo; {{ "side.chronological" | trans }}</a>
             </div>
 
-            <h2>Categories</h2>
+            <h2>{{ "side.categories" | trans }}</h2>
             <div class="list-group">
                 {% for category in categories %}
                 <a class="list-group-item" href="{{ url('homepage') }}category/{{ category.slug }}">
@@ -98,25 +98,25 @@
                     <span class="badge">{{ category.getCountPosts() }}</span>
                 </a>
                 {% else %}
-                    No categories found.
+                    {{ "side.categories_not_found" | trans }}
                 {% endfor %}
             </div>
 
 
-                <h2>Admin</h2>
+                <h2>{{ "navigation.admin" | trans }}</h2>
                 <div class="list-group">
                     {% if app.user and is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                         {% if categories | length > 0 %}
-                            <a class="list-group-item" href="{{ url('new_post') }}">&raquo; New post</a>
+                            <a class="list-group-item" href="{{ url('new_post') }}">&raquo; {{ "side.new_post" | trans }}</a>
                             <a class="list-group-item" href="{{ url('list_unpublished_posts') }}">
-                                &raquo; Unpublished posts
+                                &raquo; {{ "side.unpublished" | trans }}
                                 <span class="badge">{{ unpublished | length }}</span>
                             </a>
                         {% endif %}
-                        <a class="list-group-item" href="{{ url('list_categories') }}">&raquo; Categories</a>
-                        <a class="list-group-item" href="{{ url('fos_user_security_logout') }}">&raquo; Logout</a>
+                        <a class="list-group-item" href="{{ url('list_categories') }}">&raquo; {{ "side.category_admin" | trans }}</a>
+                        <a class="list-group-item" href="{{ url('fos_user_security_logout') }}">&raquo; {{ "side.logout" | trans }}</a>
                     {% else %}
-                        <a class="list-group-item" href="{{ url('fos_user_security_login') }}">&raquo; Login</a>
+                        <a class="list-group-item" href="{{ url('fos_user_security_login') }}">&raquo; {{ "side.login" | trans }}</a>
                     {% endif %}
                 </div>
 

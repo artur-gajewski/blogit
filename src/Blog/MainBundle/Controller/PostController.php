@@ -36,12 +36,12 @@ class PostController extends BaseController
             if ($post->getStatus() == 1) {
                 $this->get('session')->getFlashBag()->add(
                     'info',
-                    'New post has been saved!'
+                    $this->get('translator')->trans('new.post_saved_and_published')
                 );
             } elseif ($post->getStatus() == 2) {
                 $this->get('session')->getFlashBag()->add(
                     'warning',
-                    'Post has been saved, but is has not been published yet!'
+                    $this->get('translator')->trans('new.post_saved_but_not_published')
                 );
             }
 
@@ -81,7 +81,7 @@ class PostController extends BaseController
 
             $this->get('session')->getFlashBag()->add(
                 'info',
-                'Your changes were saved!'
+                $this->get('translator')->trans('common.changes_saved')
             );
 
             return $this->redirect(
@@ -113,7 +113,7 @@ class PostController extends BaseController
 
             $this->get('session')->getFlashBag()->add(
                 'info',
-                'Article has been deleted!'
+                $this->get('translator')->trans('common.post_deleted')
             );
 
             return $this->redirect($this->generateUrl('homepage'));

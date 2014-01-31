@@ -1,7 +1,7 @@
 {% extends "::layout.html.twig" %}
 
 {% block section %}
-    <li>View post</li>
+    <li>{{ "post.view_post" | trans }}</li>
     <li>{{ post.title }}</li>
 {% endblock %}
 
@@ -15,7 +15,7 @@
             </div>
             <div>
                 <h6>
-                    {{ post.created | date('M d, Y') }}
+                    {{ post.created | date('M') | trans }} {{ post.created | date('d, Y') }}
                     {% if show_category == true %}
                         - in <a href="{{ url('homepage') }}category/{{ post.category.slug }}">{{ post.category.title | capitalize }}</a>
                     {% endif %}
@@ -23,7 +23,7 @@
 
                 {% if app.user and is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                     <div>
-                        <a href="{{ url('edit_post', { 'postId': post.id }) }}" class="btn btn-{% if post.status == 2 %}warning{% else %}primary{% endif %} btn-xs">Edit post</a>
+                        <a href="{{ url('edit_post', { 'postId': post.id }) }}" class="btn btn-{% if post.status == 2 %}warning{% else %}primary{% endif %} btn-xs">{{ "post.edit_post" | trans }}</a>
                     </div>
                 {% endif %}
             </div>

@@ -49,11 +49,14 @@ class BaseController extends Controller
     public function renderPostNotFound()
     {
         $categoryService = $this->getCategoryService();
+        $postService = $this->getPostService();
 
         $categories = $categoryService->getCategories();
+        $unpublished = $postService->getUnpublishedPosts();
 
         $common =  array(
             'categories' => $categories,
+            'unpublished' => $unpublished,
         );
 
         return $this->render('BlogMainBundle:Post:notfound.html.twig',

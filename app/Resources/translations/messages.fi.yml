@@ -1,0 +1,157 @@
+#
+# Translations for the UI
+#
+
+### Layout ###
+
+navigation:
+    home: "Etusivu"
+    admin: "Ylläpito"
+    front: "Etusivu"
+
+hero:
+    hello: "Terve"
+    sub: "Voit nyt luoda uusia kirjoituksia blogiisi."
+
+side:
+    listings: "Kirjoitukset"
+    latest_posts: "Uusimmat"
+    chronological: "Aikajärjestyksessä"
+
+    categories: "Kategoriat"
+    categories_not_found: "Ei kategorioita."
+
+    admin: "Ylläpito"
+    new_post: "Uusi kirjoitus"
+    unpublished: "Julkaisemattomat"
+    category_admin: "Kategoriat"
+
+    login: "Kirjaudu sisään"
+    logout: "Kirjaudu ulos"
+
+### Post listing ###
+listing:
+    in: "kategoriassa"
+    comments: "kommenttia"
+
+    posts_not_found: "Ei kirjoituksia!"
+
+    previous_page: "Edellinen sivu"
+    next_page: "Seuraava sivu"
+
+### Post view ###
+post:
+    view_post: "Katso kirjoitusta"
+    edit_post: "Muokkaa kirjoitusta"
+
+### New post ###
+new:
+    new_post: "Uusi kirjoitus"
+    title: "Otsikko"
+    category: "Kategoria"
+    content: "Sisältö"
+    status: "Tila"
+    status_published: "Julkaistu"
+    status_not_published: "Julkaisematon"
+    save_button: "Tallenna"
+
+    post_saved_and_published: "Kirjoitus on tallennettu ja julkaistu!"
+    post_saved_but_not_published: "Kirjoitus on tallennettu, mutta sitä ei ole vielä julkaistu!"
+
+### Post edit ###
+edit:
+    edit_post: "Muokkaa kirjoitusta"
+    title: "Muokkaa kirjoitusta"
+    post_title: "Otsikko"
+    post_category: "Kategoria"
+    post_content: "Sisältö"
+    post_created: "Luotu"
+
+    post_status: "Tila"
+    post_status_published: "Julkaistu"
+    post_status_not_published: "Julkaisematon"
+
+    post_modify: "Muokkaa"
+    post_delete: "Poista"
+
+### Post delete ###
+delete:
+    delete_post: "Poista kirjoitus"
+    title: "Poista kirjoitus"
+    warning: "Varoitus!"
+    warning_text: "Olet poistamassa tämän kirjoituksen. Poistettua kirjoitusta ei enää saa takaisin."
+    delete_button: "Poista tämä kirjoitus"
+
+### Unpublished posts listing ###
+unpublished:
+    unpublished_posts: "Julkaisemattomat"
+    options: "Valinnat"
+    title_and_date: "Otsikko ja Pvm"
+    edit: "Muokkaa"
+    view: "Katso"
+
+### Categories listing ###
+categories:
+    list_categories: "Kategoriat"
+    categories: "Kategoriat"
+    options: "Valinnat"
+    category: "Kategoria"
+    slug: "Slug"
+    edit_button: "Muokkaa"
+    delete_button: "Poista"
+    create_button: "Luo uusi kategoria"
+    new:
+        new_category: "Uusi kategoria"
+        title: "Otsikko"
+        create_button: "Luo kategoria"
+    edit:
+        edit_category: "Muokkaa kategoriaa"
+        title: "Otsikko"
+        save: "Tallenna muutokset"
+        back: "Takaisin kategorialistaan"
+    delete:
+        delete_category: "Poista kategoria"
+        title: "Otsikko"
+
+        about: "Olet poistamassa tämän kategoriat. Poistettua kategoriaa ei enää saa takaisin."
+        cant_delete: "Tähän kategoriaan on liitetty kirjoituksia, et voit poistaa sitä ennen kuin kirjoitukset on siirretty muihin kategorioihin tai poistettu."
+
+        posts: "Kirjoitukset kategoriassa"
+        post_title: "Otsikko"
+        post_options: "Valinnat"
+        post_edit: "Muokkaa"
+        post_delete: "Poista"
+
+        warning: "Varoitus!"
+        warning_text: "Olet poistamassa tämän kategoriat. Poistettua kategoriaa ei enää saa takaisin."
+        delete_button: "Poista tämä kategoria"
+        back_button: "Takaisin kategorialistaan"
+
+### Months ###
+months:
+    Jan: "Tammikuu"
+    Feb: "Helmikuu"
+    Mar: "Maaliskuu"
+    Apr: "Huhtikuu"
+    May: "Toukokuu"
+    Jun: "Kesäkuu"
+    Jul: "Heinäkuu"
+    Aug: "Elokuu"
+    Sep: "Syyskuu"
+    Oct: "Lokakuu"
+    Nov: "Marraskuu"
+    Dec: "Joulukuu"
+
+### Common ###
+common:
+    search: "Hakusana"
+    post: "Kirjoitus"
+    category: "Kategoria"
+    admin: "Ylläpito"
+    changes_saved: "Muutokset on nyt tallennettu!!"
+    category_deleted: "Kategoria on nyt poistettu!"
+    category_deleted: "Uusi kategoria on nyt luotu!"
+    post_deleted: "Kirjoitus on nyt poistettu!"
+
+error:
+    post_not_found: "Haettua kirjoitusta ei voi avata."

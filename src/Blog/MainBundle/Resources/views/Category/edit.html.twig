@@ -1,25 +1,26 @@
 {% extends "::layout.html.twig" %}
 
 {% block section %}
-    <li>Administration</li>
-    <li>Edit category</li>
+    <li>{{ "common.admin" | trans }}</li>
+    <li>{{ "categories.edit.edit_category" | trans }}</li>
+    <li>{{ category.title }}</li>
 {% endblock %}
 
 {% block page_content %}
-    <h2>Category edit</h2>
+    <h2>{{  "categories.edit.edit_category" | trans }}</h2>
     <div class="form-container">
         <form action="{{ url('edit_category', { 'categoryId': category.id }) }}" method="post" class="bs-example form-horizontal">
             <fieldset>
                 <div class="form-group">
-                    <label for="title" class="col-lg-2 control-label">Title</label>
+                    <label for="title" class="col-lg-2 control-label">{{  "categories.edit.title" | trans }}</label>
                     <div class="col-lg-10">
-                        <input type="text" class="form-control" id="title" name="title" required="required" value="{{ category.title }}" placeholder="Enter post's title">
+                        <input type="text" class="form-control" id="title" name="title" required="required" value="{{ category.title }}">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-lg-10 col-lg-offset-2">
-                        <button type="submit" id="submit" name="submit" class="btn btn-primary">Modify</button>
-                        <a href="{{ url('list_categories') }}" class="btn btn-info">Back to category list</a>
+                        <button type="submit" id="submit" name="submit" class="btn btn-primary">{{ "categories.edit.save" | trans }}</button>
+                        <a href="{{ url('list_categories') }}" class="btn btn-info">{{ "categories.edit.back" | trans }}</a>
                     </div>
                 </div>
             </fieldset>

@@ -1,24 +1,24 @@
 {% extends "::layout.html.twig" %}
 
 {% block section %}
-    <li>Administration</li>
-    <li>New category</li>
+    <li>{{ "common.admin" | trans }}</li>
+    <li>{{ "categories.new.new_category" | trans }}</li>
 {% endblock %}
 
 {% block page_content %}
-    <h2>New category</h2>
+    <h2>{{ "categories.new.new_category" | trans }}</h2>
     <div class="form-container">
         <form action="{{ path("new_category") }}" method="post" class="bs-example form-horizontal">
             <fieldset>
                 <div class="form-group">
-                    <label for="title" class="col-lg-2 control-label">Title</label>
+                    <label for="title" class="col-lg-2 control-label">{{ "categories.new.title" | trans }}</label>
                     <div class="col-lg-10">
-                        <input type="text" class="form-control" id="title" name="title" required="required" placeholder="Enter post's title">
+                        <input type="text" class="form-control" id="title" name="title" required="required">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-lg-10 col-lg-offset-2">
-                        <button type="submit" id="submit" name="submit" class="btn btn-primary">Create</button>
+                        <button type="submit" id="submit" name="submit" class="btn btn-primary">{{ "categories.new.create_button" | trans }}</button>
                     </div>
                 </div>
             </fieldset>

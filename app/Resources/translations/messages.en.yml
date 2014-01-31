@@ -1,0 +1,159 @@
+#
+# Translations for the UI
+#
+
+### Layout ###
+
+navigation:
+    home: "Home"
+    admin: "Admin"
+    front: "Front page"
+
+hero:
+    hello: "Hello"
+    sub: "You are now ready to create a new post."
+
+side:
+    listings: "Listings"
+    latest_posts: "Latest posts"
+    chronological: "Chronological order"
+
+    categories: "Categories"
+    categories_not_found: "No categories found."
+
+    admin: "Admin"
+    new_post: "New post"
+    unpublished: "Unpublished posts"
+    category_admin: "Categories"
+
+    login: "Login"
+    logout: "Logout"
+
+### Post listing ###
+listing:
+    in: "in"
+    comments: "comments"
+
+    posts_not_found: "No posts found!"
+
+    previous_page: "Previous page"
+    next_page: "Next page"
+
+### Post view ###
+post:
+    view_post: "View post"
+    edit_post: "Edit post"
+
+### New post ###
+new:
+    new_post: "New post"
+    title: "Title"
+    category: "Category"
+    content: "Content"
+    status: "Status"
+    status_published: "Published"
+    status_not_published: "Not published"
+    save_button: "Save"
+
+    post_saved_and_published: "Post has been saved and published!"
+    post_saved_but_not_published: "Post has been saved, but is has not been published yet!"
+
+### Post edit ###
+edit:
+    edit_post: "Edit post"
+    title: "Edit post"
+    post_title: "Title"
+    post_category: "Category"
+    post_content: "Content"
+    post_created: "Created"
+
+    post_status: "Status"
+    post_status_published: "Published"
+    post_status_not_published: "Not published"
+
+    post_modify: "Modify"
+    post_delete: "Delete"
+
+### Post delete ###
+delete:
+    delete_post: "Delete post"
+    title: "Delete post"
+    warning: "Warning!"
+    warning_text: "You are about to delete this post. Once you delete it, you cannot undo the operation."
+    delete_button: "Delete this post"
+
+### Unpublished posts listing ###
+unpublished:
+    unpublished_posts: "Unpublished posts"
+    options: "Options"
+    title_and_date: "Title and Date"
+    edit: "Edit"
+    view: "View"
+
+### Categories listing ###
+categories:
+    list_categories: "List categories"
+    categories: "Categories"
+    options: "Options"
+    category: "Category"
+    slug: "Slug"
+    edit_button: "Edit"
+    delete_button: "Delete"
+    create_button: "Create new category"
+    new:
+        new_category: "New category"
+        title: "Title"
+        create_button: "Create"
+    edit:
+        edit_category: "Edit category"
+        title: "Title"
+        save: "Save"
+        back: "Back to category list"
+    delete:
+        delete_category: "Delete category"
+        title: "Title"
+
+        about: "You are about to delete this category. Once you delete it, you cannot undo the operation."
+        cant_delete: "This category has posts attached to it, it cannot be deleted!"
+
+        posts: "Posts in this category"
+        post_title: "Title"
+        post_options: "Options"
+        post_edit: "Edit"
+        post_delete: "Delete"
+
+        warning: "Warning!"
+        warning_text: "You are about to delete this category. Once you delete it, you cannot undo the operation."
+        delete_button: "Delete this category"
+        back_button: "Back to category list"
+
+### Months ###
+months:
+    Jan: "Jan"
+    Feb: "Feb"
+    Mar: "Mar"
+    Apr: "Apr"
+    May: "May"
+    Jun: "Jun"
+    Jul: "Jul"
+    Aug: "Aug"
+    Sep: "Sep"
+    Oct: "Oct"
+    Nov: "Nov"
+    Dec: "Dec"
+
+### Common ###
+common:
+    search: "Search"
+    post: "Post"
+    category: "Catgeory"
+    admin: "Administration"
+    changes_saved: "Your changes have been saved!"
+    category_deleted: "Category has been deleted!"
+    category_deleted: "Category has been created!"
+    post_deleted: "Post has been deleted!"
+
+### Error ###
+
+error:
+    post_not_found: "Requested post is currently unavailable."

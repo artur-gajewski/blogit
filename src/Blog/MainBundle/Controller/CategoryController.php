@@ -30,7 +30,7 @@ class CategoryController extends BaseController
 
             $this->get('session')->getFlashBag()->add(
                 'info',
-                'New category has been saved!'
+                $this->get('translator')->trans('common.category_created')
             );
 
             return $this->redirect($this->generateUrl('list_categories'));
@@ -55,7 +55,7 @@ class CategoryController extends BaseController
 
             $this->get('session')->getFlashBag()->add(
                 'info',
-                'Your changes were saved!'
+                $this->get('translator')->trans('common.changes_saved')
             );
         }
 
@@ -80,7 +80,7 @@ class CategoryController extends BaseController
 
             $this->get('session')->getFlashBag()->add(
                 'info',
-                'Category has been deleted!'
+                $this->get('translator')->trans('common.category_deleted')
             );
 
             return $this->redirect($this->generateUrl('list_categories'));
