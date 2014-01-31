@@ -1,0 +1,22 @@
+---
+- name: Install nginx
+  apt: name=nginx state=present
+
+- name: Remove default nginx site
+  file: path=/etc/nginx/sites-enabled/default state=absent
+
+- name: Import nginx.conf
+  template: src=nginx.conf dest=/etc/nginx/nginx.conf
+
+- name: Ensure webroot created
+  file: dest={{ webroot }} state=directory
+
+- name: nginx | Ensure running
+  command: /etc/init.d/nginx restart
+
+- name: Symlink source code to app webroot
+  file: src={{ src_dir }} dest={{ app_webroot }} owner=www-data group=www-data state=link
+
+- name: nginx | Enable site config
+  file: src=/etc/nginx/sites-available/{{ app_name }}.conf dest=/etc/nginx/sites-enabled/{{ app_name }}.conf state=link
+  notify: restart nginx

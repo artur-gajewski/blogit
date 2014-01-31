@@ -1,0 +1,25 @@
+---
+- name: apt | Add mariadb key
+  apt_key: url='http://keyserver.ubuntu.com/pks/lookup?op=get&search=0xcbcb082a1bb943db'
+
+- name: Add mariadb repository
+  apt_repository: repo='deb http://ftp.heanet.ie/mirrors/mariadb/repo/10.0/ubuntu precise main' state=present
+
+- name: install web server packages
+  action: apt pkg=$item state=installed 
+  with_items:
+    - mariadb-server
+    - python-mysqldb
+
+- name: MariaDB | Ensure running
+  action: service name=mysql state=started
+
+- name: MariaDB | Setup user
+  mysql_user: name={{ db_user }} password={{ db_pass }} priv=*.*:ALL state=present
+
+- name: MariaDB | Create unit test db
+  mysql_db: db={{ db_name }}_unit_tests state=present
+
+- name: MariaDB | Create app db
+  mysql_db: db={{ db_name }} state=present
+  register: result

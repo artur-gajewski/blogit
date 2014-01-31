@@ -1,0 +1,14 @@
+---
+
+    app_name: blogit
+    src_dir: /vagrant
+    log_dir:  /var/log
+    app_url: '192.168.205.205'
+    webroot: /var/www
+    app_webroot: '{{ webroot }}/{{ app_name }}'
+
+    db_user: '{{ app_name }}'
+    db_pass: '{{ app_name }}'
+    db_name: '{{ app_name }}'
+    secret: skdjfhkjsdhfweurf98wyrywyr78wy487w47tywt
+

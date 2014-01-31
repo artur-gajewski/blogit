@@ -1,0 +1,8 @@
+---
+
+- hosts: database
+  user: vagrant
+  sudo: true
+  roles:
+    - common
+    - mysql
