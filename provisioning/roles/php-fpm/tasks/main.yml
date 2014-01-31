@@ -1,0 +1,31 @@
+---
+
+- name: Install php-fpm and deps 
+  apt: name={{ item }} state=present update_cache=yes
+  with_items:
+    - php5-cli
+    - php5-fpm
+    - php5-mysql
+    - php5-mcrypt
+    - php5-gd
+    - php5-curl
+    - php-apc
+    - phpunit
+    - ant
+    - openjdk-7-jdk
+
+- name: Import PHP configurations
+  template: src=app_php.ini dest=/etc/php5/conf.d/{{ app_name }}.ini
+
+- name: Import PHP configurations
+  template: src=www.conf dest=/etc/php5/fpm/pool.d/www.conf
+  notify: restart php-fpm
+
+- name: download composer
+  action: command wget http://getcomposer.org/installer -O /tmp/installer
+
+- name: install composer
+  action: command /usr/bin/php /tmp/installer --install-dir=/usr/bin
+
+- name: move composer.phar to composer
+  action: command mv /usr/bin/composer.phar /usr/bin/composer

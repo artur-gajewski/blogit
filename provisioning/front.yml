@@ -1,0 +1,9 @@
+---
+
+- hosts: front
+  user: vagrant
+  sudo: true
+  roles:
+    - common
+    - php-fpm
+    - magento

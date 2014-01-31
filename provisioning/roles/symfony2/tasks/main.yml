@@ -1,0 +1,47 @@
+---
+
+- name: nginx | Import {{ app_name }} config
+  template: src=nginx_server_block.conf dest=/etc/nginx/sites-available/{{ app_name }}.conf
+
+- name: ensure log directory
+  action: file dest=/srv/app/logs state=directory mode=0755 owner=www-data group=www-data
+
+- name: ensure cache directory
+  action: file dest=/srv/app/cache state=directory mode=0755 owner=www-data group=www-data
+
+- name: nginx | link cache
+  file: src=/srv/app/cache dest={{app_webroot}}/app/cache state=link
+
+- name: nginx | link log
+  file: src=/srv/app/logs dest={{app_webroot}}/app/logs state=link
+
+- name: symfony application config
+  template: src={{ item }} dest={{app_webroot}}/app/config/parameters.yml
+  first_available_file:
+    - parameters.yml
+
+- name: install composer packages
+  action: command /usr/bin/composer install -n chdir={{app_webroot}}
+
+
+- name: remove app_dev restriction
+  action: template src=app_dev.php dest={{app_webroot}}/web/app_dev.php
+
+- name: ensure right dev permission
+  action: command /bin/chown -R www-data:www-data {{app_webroot}}/app/cache/dev
+
+- name: drop old scema
+  command: /usr/bin/php app/console -n doctrine:database:drop --force chdir={{app_webroot}}
+  ignore_errors: yes
+
+- name: create database
+  command: /usr/bin/php app/console -n doctrine:database:create chdir={{app_webroot}}
+  ignore_errors: yes
+
+- name: add new user to kirjablogi
+  command: /usr/bin/php app/console -n doctrine:schema:create chdir={{app_webroot}}
+  ignore_errors: yes
+
+- name: add new user to kirjablogi
+  command: /usr/bin/php app/console -n fos:user:create admin admin@testing.com admin chdir={{app_webroot}}
+  ignore_errors: yes

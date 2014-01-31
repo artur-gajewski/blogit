@@ -1,0 +1,9 @@
+---
+
+- name: install common programs
+  apt: name={{ item }} state=present update_cache=yes
+  with_items:
+    - python-software-properties
+    - curl
+    - vim
+    - git

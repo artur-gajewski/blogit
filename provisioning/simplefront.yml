@@ -1,0 +1,11 @@
+---
+
+- hosts: simplefront
+  user: vagrant
+  sudo: true
+  roles:
+    - common
+    - php-fpm
+    - nginx
+    - mariadb
+    - symfony2
