@@ -68,9 +68,26 @@ then run the following commands:
 
     $ app/console doctrine:database:create
     
-Finally, you will have to create the database schema for the BlogIt:
+Next, you will have to create the database schema for the BlogIt:
 
     $ app/console doctrine:schema:create
+
+If you are developing BlogIt, you can update your schema with:
+
+    $ app/console doctrine:migrations:migrate
+
+When you make changes to any of the entities, make sure to create migration file:
+
+    $ app/console doctrine:migrations:diff
+
+Make sure you remember to commit the new migration file as well!
+
+#Vagrant
+
+If you want to get development environment setup fast, you can use Vagrant to setup development environment for BlogIt
+virtually. All you have to do is run Vagrant as follows:
+
+    $ vagrant up
 
 #Themes
 
