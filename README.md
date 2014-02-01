@@ -109,11 +109,9 @@ BlogIt uses asset management and thus, you must install the assets.
 
 In order to be able to administrate your new blog, you must create a user:
 
-	$ php app/console fos:user:create
+	$ php app/console blog:user:create
 
-Enter required information and after the console is done creating your user you are ready to login by adding /login to
-the end of the main page's URL. So if your blog is installed at www.blogit-site.com then the access point to user login will
-be www.blogit-site.com/login
+Enter required information and after the console is done creating your user you are ready to login.
 
 #Usage
 
