@@ -8,6 +8,7 @@ navigation:
     home: "Home"
     admin: "Admin"
     front: "Front page"
+    share: "Share blog"
 
 hero:
     hello: "Hello"

@@ -61,6 +61,11 @@ a:hover {
     margin-top: 15px;
 }
 
+.share-group {
+    margin-top: 30px;
+    padding-left: 13px;
+}
+
 #footer {
     height: 70px;
 }
