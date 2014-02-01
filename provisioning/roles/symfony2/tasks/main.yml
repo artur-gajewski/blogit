@@ -38,10 +38,10 @@
   command: /usr/bin/php app/console -n doctrine:database:create chdir={{app_webroot}}
   ignore_errors: yes
 
-- name: add new user to kirjablogi
+- name: add new user to blog database
   command: /usr/bin/php app/console -n doctrine:schema:create chdir={{app_webroot}}
   ignore_errors: yes
 
-- name: add new user to kirjablogi
-  command: /usr/bin/php app/console -n fos:user:create admin admin@testing.com admin chdir={{app_webroot}}
+- name: add new user to blog
+  command: /usr/bin/php app/console -n blog:user:create john doe admin@testing.com admin admin chdir={{app_webroot}}
   ignore_errors: yes
