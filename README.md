@@ -17,6 +17,7 @@ BlogIt is an open source blog engine alternative to Blogger and Wordpress and is
 - WYSIWYG editor
 - Many nice Bootstrap3 themes out-of-the-box
 - Facebook comments plugin
+- Facebook like button
 
 #Installation
 
