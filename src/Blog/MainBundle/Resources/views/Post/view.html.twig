@@ -31,22 +31,25 @@
 
             <div class="content">
                 {{ post.content | raw }}
-                <div class="fb-like" data-href="{{ url('view_post', { 'postId': post.id, 'slug': post.slug }) }}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+                {% if facebook_like_button %}
+                    <div class="fb-like" data-href="{{ url('view_post', { 'postId': post.id, 'slug': post.slug }) }}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+                {% endif %}
             </div>
         </div>
     </div>
-    <div class="row facebook-comments">
-        <div class="col-lg-12">
-            <div class="fb-like" data-href="https://developers.facebook.comasdasdasd" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
-            <div class="fb-comments" data-href="{{ url('view_post', { 'postId': post.id, 'slug': post.slug }) }}" data-send="false" data-num-posts="5" mobile="false"></div>
-            <style>
-                .fb-comments, .fb-comments iframe[style], .fb-like-box, .fb-like-box iframe[style] {
-                    width: 100% !important;
-                }
-                .fb-comments span, .fb-comments iframe span[style], .fb-like-box span, .fb-like-box iframe span[style] {
-                    max-width: 600px; width: 100% !important;
-                }
-            </style>
+    {% if facebook_commenting %}
+        <div class="row facebook-comments">
+            <div class="col-lg-12">
+                <div class="fb-comments" data-href="{{ url('view_post', { 'postId': post.id, 'slug': post.slug }) }}" data-send="false" data-num-posts="5" mobile="false"></div>
+                <style>
+                    .fb-comments, .fb-comments iframe[style], .fb-like-box, .fb-like-box iframe[style] {
+                        width: 100% !important;
+                    }
+                    .fb-comments span, .fb-comments iframe span[style], .fb-like-box span, .fb-like-box iframe span[style] {
+                        max-width: 600px; width: 100% !important;
+                    }
+                </style>
+            </div>
         </div>
-    </div>
+    {% endif %}
 {% endblock %}

@@ -15,13 +15,17 @@
                         - {{ "listing.in" | trans }} <a href="{{ url('homepage') }}category/{{ post.category.slug }}">{{ post.category.title | capitalize }}</a>
                         {% endif %}
                     </h6>
-                    <h6>
-                        <a href="{{ url('view_post', { 'postId': post.id, 'slug': post.slug }) }}"><fb:comments-count href={{ url('view_post', { 'postId': post.id, 'slug': post.slug }) }}></fb:comments-count> {{ "listing.comments" | trans }}</a>
-                    </h6>
+                    {% if facebook_commenting %}
+                        <h6>
+                            <a href="{{ url('view_post', { 'postId': post.id, 'slug': post.slug }) }}"><fb:comments-count href={{ url('view_post', { 'postId': post.id, 'slug': post.slug }) }}></fb:comments-count> {{ "listing.comments" | trans }}</a>
+                        </h6>
+                    {% endif %}
                 </div>
                 <div class="content">
                     {{ post.content | raw }}
-                    <div class="fb-like" data-href="{{ url('view_post', { 'postId': post.id, 'slug': post.slug }) }}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+                    {% if facebook_like_button %}
+                        <div class="fb-like" data-href="{{ url('view_post', { 'postId': post.id, 'slug': post.slug }) }}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+                    {% endif %}
                 </div>
             </div>
         </div>

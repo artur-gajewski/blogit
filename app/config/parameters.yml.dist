@@ -20,3 +20,6 @@ parameters:
     blog_subhero: It's time to sit down and write down some good stories ...
     blog_copyright: Your copyright name
     blog_email: your.email@address.com
+
+    facebook_like_button: true
+    facebook_commenting: true

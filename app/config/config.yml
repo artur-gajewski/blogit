@@ -35,6 +35,8 @@ twig:
         blog_subhero: "%blog_subhero%"
         blog_copyright: "%blog_copyright%"
         blog_email: "%blog_email%"
+        facebook_like_button: "%facebook_like_button%"
+        facebook_commenting: "%facebook_commenting%"
 
 # Assetic Configuration
 assetic:
