@@ -19,6 +19,9 @@ BlogIt is an open source blog engine alternative to Blogger and Wordpress and is
 - Facebook comments plugin
 - Facebook like button
 
+I have published my own blog about reading at [www.kirjablogi.com](http://www.kirjablogi.com) and you are more than welcome to have a look around.
+Unfortunately this blog is only in finnish as the main target are finnish book readers.
+
 #Installation
 
 To install BlogIt to your server, go to desired folder of installation and clone the project from Github:
@@ -113,6 +116,19 @@ In order to be able to administrate your new blog, you must create a user:
 	$ php app/console blog:user:create
 
 Enter required information and after the console is done creating your user you are ready to login.
+
+#Parameters
+
+There are many things you can customize in BlogIt in the parameters.yml file:
+
+blog_theme: Theme of the blog.
+blog_title: Title of the blog which will be visible in the navigation bar and browser's bar.
+blog_hero: Hero unit's big text.
+blog_subhero: Smaller head text under the hero unit.
+blog_copyright: Your copyright name.
+blog_email: email address you want to display to your readers.
+facebook_like_button: Whether you want to enable Facebook button after each post.
+facebook_commenting: Whether you want to enable Facebook comment plugin so that people can comment on your posts.
 
 #Usage
 
