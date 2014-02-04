@@ -10,10 +10,10 @@ nbproject/
 web/js
 web/css
 web/bundles/
-app/cache/*
 app/bootstrap.php.cache
 app/SymfonyRequirements.php
-app/logs/*
+app/cache
+app/logs
 app/config/parameters.yml
 app/data/*
 /bin
