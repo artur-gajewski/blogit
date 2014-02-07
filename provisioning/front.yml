@@ -6,4 +6,3 @@
   roles:
     - common
     - php-fpm
-    - magento
