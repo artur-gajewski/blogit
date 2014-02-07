@@ -86,20 +86,6 @@ When you make changes to any of the entities, make sure to create migration file
 
 Make sure you remember to commit the new migration file as well!
 
-#RESTful API
-
-If you want to implement blog writings to any third party website, it is very simple to do so by using BlogIt's RESTful API.
-
-Fetch list of posts from newest to oldest: /api/v1/posts
-
-Fetch list of posts in chronological order: /api/v1/posts/ordered
-
-Fetch individual post: /api/v1/posts/{postId}
-
-Fetch list of categories: /api/v1/categories
-
-Fetch posts in individual category: /api/v1/categories/{categoryId}
-
 #Vagrant
 
 If you want to get development environment setup fast, you can use Vagrant to setup development environment for BlogIt
@@ -144,7 +130,23 @@ blog_email: email address you want to display to your readers.
 facebook_like_button: Whether you want to enable Facebook button after each post.
 facebook_commenting: Whether you want to enable Facebook comment plugin so that people can comment on your posts.
 
-#Usage
+#RESTful API
+
+If you want to implement blog writings to any third party website, it is very simple to do so by using BlogIt's RESTful API.
+
+Fetch list of posts from newest to oldest: /api/v1/posts
+
+Fetch list of posts in chronological order: /api/v1/posts/ordered
+
+Fetch individual post: /api/v1/posts/{postId}
+
+Fetch list of categories: /api/v1/categories
+
+Fetch posts in individual category: /api/v1/categories/{categoryId}
+
+You can test out the API on my personal blog and fetch posts with [www.kirjablogi.com/api/v1/posts](http://www.kirjablogi.com/api/v1/posts)
+
+#If you use BlogIt
 
 If you end up installing your own instance of BlogIt, I kindly ask you to send me a quick note about it. I would love
 to see this blog engine in action some where in the world :)
