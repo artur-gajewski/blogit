@@ -86,6 +86,10 @@ When you make changes to any of the entities, make sure to create migration file
 
 Make sure you remember to commit the new migration file as well!
 
+#API
+
+If you want to build your own layout and visual look, it is very simple to do so by fetching blog data
+
 #Vagrant
 
 If you want to get development environment setup fast, you can use Vagrant to setup development environment for BlogIt

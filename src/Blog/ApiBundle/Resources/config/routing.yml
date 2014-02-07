@@ -1,0 +1,7 @@
+category:
+    resource: "@BlogApiBundle/Controller/CategoryController.php"
+    type:     annotation
+
+post:
+    resource: "@BlogApiBundle/Controller/PostController.php"
+    type:     annotation
