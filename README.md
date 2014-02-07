@@ -86,9 +86,19 @@ When you make changes to any of the entities, make sure to create migration file
 
 Make sure you remember to commit the new migration file as well!
 
-#API
+#RESTful API
 
-If you want to build your own layout and visual look, it is very simple to do so by fetching blog data
+If you want to implement blog writings to any third party website, it is very simple to do so by using BlogIt's RESTful API.
+
+Fetch list of posts from newest to oldest: /api/v1/posts
+
+Fetch list of posts in chronological order: /api/v1/posts/ordered
+
+Fetch individual post: /api/v1/posts/{postId}
+
+Fetch list of categories: /api/v1/categories
+
+Fetch posts in individual category: /api/v1/categories/{categoryId}
 
 #Vagrant
 
