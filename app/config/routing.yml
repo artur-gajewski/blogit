@@ -1,5 +1,11 @@
 _main:
     resource: "@BlogMainBundle/Resources/config/routing.yml"
 
+_admin:
+    resource: "@BlogAdminBundle/Resources/config/routing.yml"
+
+_api:
+    resource: "@BlogApiBundle/Resources/config/routing.yml"
+
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
