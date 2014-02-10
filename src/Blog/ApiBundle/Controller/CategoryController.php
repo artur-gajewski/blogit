@@ -25,13 +25,14 @@ class CategoryController extends BaseController
     {
         $categoryService = $this->getCategoryService();
         $categories = $categoryService->getCategories();
-        $response = array();
+        $data = array();
 
         foreach ($categories as $category) {
-            $response[] = $this->getCategoryData($category);
+            $data[] = $this->getCategoryData($category);
         }
 
-        return new JsonResponse($response);
+        $response = $this->createResponse($data);
+        return $response;
     }
 
     /**
@@ -45,13 +46,14 @@ class CategoryController extends BaseController
         $category = $categoryService->getCategoryById($categoryId);
         $posts = $postService->getPostsByCategory($category);
 
-        $response = array();
+        $data = array();
 
         foreach ($posts as $post) {
-            $response[] = $this->getPostData($post);
+            $data[] = $this->getPostData($post);
         }
 
-        return new JsonResponse($response);
+        $response = $this->createResponse($data);
+        return $response;
     }
 
 }

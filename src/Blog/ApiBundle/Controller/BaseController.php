@@ -5,6 +5,7 @@ namespace Blog\ApiBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
@@ -81,5 +82,33 @@ class BaseController extends Controller
             'post_count' => $category->getCountPosts(),
             'url'        => $url,
         );
+    }
+
+    /**
+     * Create JSON/JSONP response
+     *
+     * @param array $data
+     * @return Response
+     */
+    public function createResponse(array $data)
+    {
+        if (!empty($_GET['callback'])) {
+            $content = $_GET['callback'] . '(' . json_encode($data) . ');';
+        } else {
+            $content = json_encode($data);
+        }
+
+        $response = new Response(
+            $content,
+            Response::HTTP_OK,
+            array(
+                'content-type' => 'application/json',
+                'Access-Control-Allow-Origin' => '*',
+                'Access-Control-Expose-Headers' => 'Access-Control-Allow-Origin',
+            )
+        );
+
+        return $response;
+
     }
 }

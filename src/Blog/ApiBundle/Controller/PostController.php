@@ -5,6 +5,7 @@ namespace Blog\ApiBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -24,13 +25,14 @@ class PostController extends BaseController
     {
         $postService = $this->getPostService();
         $posts = $postService->getPosts();
-        $response = array();
+        $data = array();
 
         foreach ($posts as $post) {
-            $response[] = $this->getPostData($post);
+            $data[] = $this->getPostData($post);
         }
 
-        return new JsonResponse($response);
+        $response = $this->createResponse($data);
+        return $response;
     }
 
     /**
@@ -41,13 +43,14 @@ class PostController extends BaseController
     {
         $postService = $this->getPostService();
         $posts = $postService->getPosts('ASC');
-        $response = array();
+        $data = array();
 
         foreach ($posts as $post) {
-            $response[] = $this->getPostData($post);
+            $data[] = $this->getPostData($post);
         }
 
-        return new JsonResponse($response);
+        $response = $this->createResponse($data);
+        return $response;
     }
 
     /**
@@ -59,9 +62,10 @@ class PostController extends BaseController
         $postService = $this->getPostService();
         $post = $postService->getPostById($postId);
 
-        $response = $this->getPostData($post);
+        $data = $this->getPostData($post);
 
-        return new JsonResponse($response);
+        $response = $this->createResponse($data);
+        return $response;
     }
 
 }
