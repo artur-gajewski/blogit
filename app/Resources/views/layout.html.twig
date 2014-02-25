@@ -109,10 +109,12 @@
                 {% if app.user and is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                     {% if categories | length > 0 %}
                         <a class="list-group-item" href="{{ url('new_post') }}">&raquo; {{ "side.new_post" | trans }}</a>
-                        <a class="list-group-item" href="{{ url('list_unpublished_posts') }}">
-                            &raquo; {{ "side.unpublished" | trans }}
-                            <span class="badge">{{ unpublished | length }}</span>
-                        </a>
+                        {% if unpublished | length > 0 %}
+                            <a class="list-group-item" href="{{ url('list_unpublished_posts') }}">
+                                &raquo; {{ "side.unpublished" | trans }}
+                                <span class="badge">{{ unpublished | length }}</span>
+                            </a>
+                        {% endif %}
                     {% endif %}
                     <a class="list-group-item" href="{{ url('list_categories') }}">&raquo; {{ "side.category_admin" | trans }}</a>
                     <a class="list-group-item" href="{{ url('fos_user_security_logout') }}">&raquo; {{ "side.logout" | trans }}</a>
