@@ -39,4 +39,7 @@ CKEDITOR.editorConfig = function( config ) {
     // Don't convert to entities
     config.htmlEncodeOutput = false;
     config.entities = false;
+
+    // Extra plugins:
+    config.extraPlugins = 'youtube';
 };
