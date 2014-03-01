@@ -109,7 +109,7 @@
             <div class="list-group">
                 {% for link in links %}
                     <a class="list-group-item" href="http://{{ link.url | raw }}">
-                        &raquo; {{ link.title | capitalize }}
+                        &raquo; {{ link.title }}
                     </a>
                 {% endfor %}
             </div>
