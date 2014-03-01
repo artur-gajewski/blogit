@@ -22,10 +22,13 @@ side:
     categories: "Kategoriat"
     categories_not_found: "Ei kategorioita."
 
+    links: "Linkit"
+
     admin: "Ylläpito"
     new_post: "Uusi kirjoitus"
     unpublished: "Julkaisemattomat"
     category_admin: "Kategoriat"
+    link_admin: "Linkit"
 
     login: "Kirjaudu sisään"
     logout: "Kirjaudu ulos"
@@ -127,6 +130,39 @@ categories:
         warning_text: "Olet poistamassa tämän kategoriat. Poistettua kategoriaa ei enää saa takaisin."
         delete_button: "Poista tämä kategoria"
         back_button: "Takaisin kategorialistaan"
+
+### Links listing ###
+links:
+    list_links: "Linkit"
+    links: "Linkit"
+    options: "Valinnat"
+    category: "Linkki"
+    edit_button: "Muokkaa"
+    delete_button: "Poista"
+    create_button: "Luo uusi linkki"
+    title: "Otsikko"
+    url: "Osoite"
+    new:
+        new_link: "Uusi linkki"
+        title: "Otsikko"
+        url: "Osoite"
+        create_button: "Luo linkki"
+    edit:
+        edit_link: "Muokkaa linkkiä"
+        title: "Otsikko"
+        save: "Tallenna muutokset"
+        back: "Takaisin linkkilistaan"
+    delete:
+        delete_link: "Poista linkki"
+        title: "Otsikko"
+        url: "Osoite"
+
+        about: "Olet poistamassa tämän linkin. Poistettua linkkiä ei enää saa takaisin."
+
+        warning: "Varoitus!"
+        warning_text: "Olet poistamassa tämän linkin. Poistettua linkkiä ei enää saa takaisin."
+        delete_button: "Poista tämä linkki"
+        back_button: "Takaisin linkkilistaan"
 
 ### Months ###
 months:

@@ -5,3 +5,7 @@ category:
 post:
     resource: "@BlogAdminBundle/Controller/PostController.php"
     type:     annotation
+
+link:
+    resource: "@BlogAdminBundle/Controller/LinkController.php"
+    type:     annotation

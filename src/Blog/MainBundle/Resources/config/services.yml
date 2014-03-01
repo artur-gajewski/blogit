@@ -20,6 +20,16 @@ services:
         factory_service: doctrine.orm.entity_manager
         factory_method:  getRepository
 
+    blog_main.service.link:
+            class:     Blog\MainBundle\Service\LinkService
+            arguments: ["@doctrine.orm.entity_manager", "@blog_main.repository.link", "@security.context"]
+
+    blog_main.repository.link:
+        class:           Blog\MainBundle\Entity\LinkRepository
+        arguments:       [Blog\MainBundle\Entity\Link]
+        factory_service: doctrine.orm.entity_manager
+        factory_method:  getRepository
+
     blog_main.util.user_manipulator:
         class:           Blog\UserBundle\Util\UserManipulator
         arguments:       [@fos_user.user_manager]

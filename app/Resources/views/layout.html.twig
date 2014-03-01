@@ -104,6 +104,17 @@
                 {% endfor %}
             </div>
 
+            {% if links | length > 0 %}
+            <h2>{{ "side.links" | trans }}</h2>
+            <div class="list-group">
+                {% for link in links %}
+                    <a class="list-group-item" href="http://{{ link.url | raw }}">
+                        &raquo; {{ link.title | capitalize }}
+                    </a>
+                {% endfor %}
+            </div>
+            {% endif %}
+
             <h2>{{ "navigation.admin" | trans }}</h2>
             <div class="list-group">
                 {% if app.user and is_granted("IS_AUTHENTICATED_REMEMBERED") %}
@@ -117,6 +128,7 @@
                         {% endif %}
                     {% endif %}
                     <a class="list-group-item" href="{{ url('list_categories') }}">&raquo; {{ "side.category_admin" | trans }}</a>
+                    <a class="list-group-item" href="{{ url('list_links') }}">&raquo; {{ "side.link_admin" | trans }}</a>
                     <a class="list-group-item" href="{{ url('fos_user_security_logout') }}">&raquo; {{ "side.logout" | trans }}</a>
                 {% else %}
                     <a class="list-group-item" href="{{ url('fos_user_security_login') }}">&raquo; {{ "side.login" | trans }}</a>

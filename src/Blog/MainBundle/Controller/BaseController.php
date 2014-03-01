@@ -14,13 +14,16 @@ class BaseController extends Controller
     {
         $categoryService = $this->getCategoryService();
         $postService = $this->getPostService();
+        $linkService = $this->getLinkService();
 
         $categories = $categoryService->getCategories();
         $unpublished = $postService->getUnpublishedPosts();
+        $links = $linkService->getLinks();
 
         $common =  array(
             'categories' => $categories,
             'unpublished' => $unpublished,
+            'links' => $links
         );
 
         if (!empty($array)) {
@@ -44,6 +47,14 @@ class BaseController extends Controller
     public function getCategoryService()
     {
         return $this->container->get('blog_main.service.category');
+    }
+
+    /**
+     * @return LinkService
+     */
+    public function getLinkService()
+    {
+        return $this->container->get('blog_main.service.link');
     }
 
     public function renderPostNotFound()
