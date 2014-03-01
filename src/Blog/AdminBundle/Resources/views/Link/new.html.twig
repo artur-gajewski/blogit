@@ -1,0 +1,34 @@
+{% extends "::layout.html.twig" %}
+
+{% block section %}
+    <li>{{ "common.admin" | trans }}</li>
+    <li>{{ "links.new.new_link" | trans }}</li>
+{% endblock %}
+
+{% block page_content %}
+    <h2>{{ "links.new.new_link" | trans }}</h2>
+    <div class="form-container">
+        <form action="{{ path("new_link") }}" method="post" class="bs-example form-horizontal">
+            <fieldset>
+                <div class="form-group">
+                    <label for="title" class="col-lg-2 control-label">{{ "links.new.title" | trans }}</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="title" name="title" required="required">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="url" class="col-lg-2 control-label">{{ "links.new.url" | trans }}</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="url" name="url" required="required">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <button type="submit" id="submit" name="submit" class="btn btn-primary">{{ "links.new.create_button" | trans }}</button>
+                        <a href="{{ url('list_links') }}" class="btn btn-info">{{ "links.edit.back" | trans }}</a>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+{% endblock %}

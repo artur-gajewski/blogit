@@ -1,0 +1,41 @@
+{% extends "::layout.html.twig" %}
+
+{% block section %}
+    <li>{{ "common.admin" | trans }}</li>
+    <li>{{ "links.delete.delete_link" | trans }}</li>
+    <li>{{ link.title }}</li>
+{% endblock %}
+
+{% block page_content %}
+    <h2>{{  "links.delete.delete_link" | trans }}</h2>
+    <div class="form-container">
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{  "links.delete.warning" | trans }}</h3>
+            </div>
+            <div class="panel-body">
+                {{ "links.delete.about" | trans }}
+            </div>
+        </div>
+
+        <div class="row post">
+            <div class="col-lg-12">
+                <div>
+                    <h3>{{ "links.delete.title" | trans }}: {{ link.title | capitalize }}</h3>
+                    <h3>{{ "links.delete.url" | trans }}: {{ link.url }}</h3>
+                </div>
+            </div>
+        </div>
+
+        <form action="{{ url('delete_link', { 'linkId': link.id }) }}" method="post" class="bs-example form-horizontal">
+            <fieldset>
+                <div class="form-group">
+                    <div class="col-lg-12">
+                        <button type="submit" id="submit" name="submit" class="btn btn-danger">{{ "links.delete.delete_button" | trans }}</button>
+                        <a href="{{ url('list_links') }}" class="btn btn-info">{{ "links.delete.back_button" | trans }}</a>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+{% endblock %}

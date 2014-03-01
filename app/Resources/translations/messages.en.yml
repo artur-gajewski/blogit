@@ -22,10 +22,13 @@ side:
     categories: "Categories"
     categories_not_found: "No categories found."
 
+    links: "Links"
+
     admin: "Admin"
     new_post: "New post"
     unpublished: "Unpublished posts"
     category_admin: "Categories"
+    link_admin: "Links"
 
     login: "Login"
     logout: "Logout"
@@ -127,6 +130,39 @@ categories:
         warning_text: "You are about to delete this category. Once you delete it, you cannot undo the operation."
         delete_button: "Delete this category"
         back_button: "Back to category list"
+
+### Links listing ###
+links:
+    list_links: "Links"
+    links: "Links"
+    options: "Options"
+    category: "Link"
+    edit_button: "Edit"
+    delete_button: "Delete"
+    create_button: "Create new link"
+    title: "Title"
+    url: "Address"
+    new:
+        new_link: "New link"
+        title: "Title"
+        url: "Address"
+        create_button: "Create link"
+    edit:
+        edit_link: "Edit link"
+        title: "Title"
+        save: "Save changes"
+        back: "Back to link list"
+    delete:
+        delete_link: "Delete link"
+        title: "Title"
+        url: "Address"
+
+        about: "You are about to delete this link. Once you delete it, you cannot undo the operation."
+
+        warning: "Warning!"
+        warning_text: "You are about to delete this link. Once you delete it, you cannot undo the operation."
+        delete_button: "Delete this link"
+        back_button: "Back to the link list"
 
 ### Months ###
 months:
