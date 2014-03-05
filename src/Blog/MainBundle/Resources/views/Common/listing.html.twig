@@ -18,6 +18,8 @@
                     {% if facebook_commenting %}
                         <h6>
                             <a href="{{ url('view_post', { 'postId': post.id, 'slug': post.slug }) }}"><fb:comments-count href={{ url('view_post', { 'postId': post.id, 'slug': post.slug }) }}></fb:comments-count> {{ "listing.comments" | trans }}</a>
+                            &nbsp;
+                            <a href="{{ url('view_post', { 'postId': post.id, 'slug': post.slug }) }}">{{ "listing.comments_write" | trans }}</a>
                         </h6>
                     {% endif %}
                 </div>

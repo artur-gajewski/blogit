@@ -37,6 +37,7 @@ side:
 listing:
     in: "kategoriassa"
     comments: "kommenttia"
+    comments_write: "Kirjoita kommentti"
 
     posts_not_found: "Ei kirjoituksia!"
 

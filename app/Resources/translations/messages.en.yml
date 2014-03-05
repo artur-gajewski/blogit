@@ -37,6 +37,7 @@ side:
 listing:
     in: "in"
     comments: "comments"
+    comments_write: "Write a comment"
 
     posts_not_found: "No posts found!"
 
