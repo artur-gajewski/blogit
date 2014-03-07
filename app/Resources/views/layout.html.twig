@@ -86,11 +86,17 @@
             {% block page_content %}{% endblock %}
         </div>
         <div class="col-sm-4">
-            <h2>{{ "side.listings" | trans }}</h2>
+
+            {% if updates | length > 0 %}
+            <h2>{{ "side.update" | trans }}</h2>
             <div class="list-group">
-                <a class="list-group-item" href="{{ url('homepage') }}">&raquo; {{ "side.latest_posts" | trans }}</a>
-                <a class="list-group-item" href="{{ url('ordered') }}">&raquo; {{ "side.chronological" | trans }}</a>
+                {% for update in updates %}
+                <p class="list-group-item">
+                    {{ update.contet }}
+                </p>
+                {% endfor %}
             </div>
+            {% endif %}
 
             <h2>{{ "side.categories" | trans }}</h2>
             <div class="list-group">
