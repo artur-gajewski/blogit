@@ -48,9 +48,30 @@ class UpdateService
      */
     public function getUpdates()
     {
-        $updates = $this->repository->findAll();
+        return $this->repository->findAll();
+    }
 
-        return $updates ? $updates[0] : null;
+    /**
+     * @param  int $id
+     * @return Update
+     */
+    public function getUpdateById($id)
+    {
+        return $this->repository->find($id);
+    }
+
+    /**
+     * Delete an update
+     *
+     * @param  Update $update
+     * @return Update
+     */
+    public function deleteUpdate(Update $update)
+    {
+        $this->em->remove($update);
+        $this->em->flush();
+
+        return $update;
     }
 
     /**

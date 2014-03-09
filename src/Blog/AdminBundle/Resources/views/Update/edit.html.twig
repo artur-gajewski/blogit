@@ -1,0 +1,33 @@
+{% extends "::layout.html.twig" %}
+
+{% block section %}
+    <li>{{ "common.admin" | trans }}</li>
+    <li>{{ "updates.edit.edit_update" | trans }}</li>
+{% endblock %}
+
+{% block page_content %}
+    <h2>{{ "updates.edit.edit_update" | trans }}</h2>
+    <div class="form-container">
+        <form action="{{ url('edit_update', { 'updateId': update.id }) }}" method="post" class="bs-example form-horizontal">
+            <fieldset>
+                <div class="form-group">
+                    <label for="content" class="col-lg-2 control-label">{{ "new.content" | trans }}</label>
+                    <div class="col-lg-10">
+                        <textarea id="content" name="content" class="ckeditor">{{ update.content }}</textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <button type="submit" id="submit" name="submit" class="btn btn-primary">{{ "updates.edit.save" | trans }}</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('bundles/blogmain//ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('bundles/blogmain//ckeditor/adapters/jquery.js') }}"></script>
+
+{% endblock %}

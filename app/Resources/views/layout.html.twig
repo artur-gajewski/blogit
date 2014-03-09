@@ -89,11 +89,9 @@
 
             {% if updates | length > 0 %}
             <h2>{{ "side.update" | trans }}</h2>
-            <div class="list-group">
-                {% for update in updates %}
-                <p class="list-group-item">
-                    {{ update.contet }}
-                </p>
+            <div class="list-group update">
+                {% for updateRow in updates %}
+                    {{ updateRow.content | raw }}
                 {% endfor %}
             </div>
             {% endif %}
@@ -133,6 +131,7 @@
                             </a>
                         {% endif %}
                     {% endif %}
+                    <a class="list-group-item" href="{{ url('list_updates') }}">&raquo; {{ "side.update_admin" | trans }}</a>
                     <a class="list-group-item" href="{{ url('list_categories') }}">&raquo; {{ "side.category_admin" | trans }}</a>
                     <a class="list-group-item" href="{{ url('list_links') }}">&raquo; {{ "side.link_admin" | trans }}</a>
                     <a class="list-group-item" href="{{ url('fos_user_security_logout') }}">&raquo; {{ "side.logout" | trans }}</a>

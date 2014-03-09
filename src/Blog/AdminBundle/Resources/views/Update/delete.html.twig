@@ -1,0 +1,39 @@
+{% extends "::layout.html.twig" %}
+
+{% block section %}
+    <li>{{ "common.admin" | trans }}</li>
+    <li>{{ "updates.delete.delete_update" | trans }}</li>
+{% endblock %}
+
+{% block page_content %}
+    <h2>{{  "updates.delete.delete_update" | trans }}</h2>
+    <div class="form-container">
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{  "updates.delete.warning" | trans }}</h3>
+            </div>
+            <div class="panel-body">
+                {{ "updates.delete.about" | trans }}
+            </div>
+        </div>
+
+        <div class="row post">
+            <div class="col-lg-12">
+                <div>
+                    <p>{{ update.content | raw }}</p>
+                </div>
+            </div>
+        </div>
+
+        <form action="{{ url('delete_update', { 'updateId': update.id }) }}" method="post" class="bs-example form-horizontal">
+            <fieldset>
+                <div class="form-group">
+                    <div class="col-lg-12">
+                        <button type="submit" id="submit" name="submit" class="btn btn-danger">{{ "updates.delete.delete_button" | trans }}</button>
+                        <a href="{{ url('list_updates') }}" class="btn btn-info">{{ "updates.delete.back_button" | trans }}</a>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+{% endblock %}

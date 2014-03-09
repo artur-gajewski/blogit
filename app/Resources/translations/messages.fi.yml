@@ -23,12 +23,14 @@ side:
     categories_not_found: "Ei kategorioita."
 
     links: "Linkit"
+    update: "Tällä hetkellä"
 
     admin: "Ylläpito"
     new_post: "Uusi kirjoitus"
     unpublished: "Julkaisemattomat"
     category_admin: "Kategoriat"
     link_admin: "Linkit"
+    updates_admin: "Päivitykset"
 
     login: "Kirjaudu sisään"
     logout: "Kirjaudu ulos"
@@ -165,6 +167,36 @@ links:
         delete_button: "Poista tämä linkki"
         back_button: "Takaisin linkkilistaan"
 
+### Updates listing ###
+updates:
+    list_updates: "Päivitykset"
+    updates: "Päivitykset"
+    options: "Valinnat"
+    update: "Update"
+    edit_button: "Muokkaa"
+    delete_button: "Poista"
+    create_button: "Luo uusi päivitys"
+    content: "Sisältö"
+    new:
+        new_update: "Uusi päivitys"
+        content: "Sisältö"
+        create_button: "Luo päivitys"
+    edit:
+        edit_update: "Muokkaa päivitystä"
+        content: "Sisältö"
+        save: "Tallenna muutokset"
+        back: "Takaisin päivityslistalle"
+    delete:
+        delete_update: "Poista päivitys"
+        content: "Sisältö"
+
+        about: "Olet poistamassa tämän päivityksen. Poistettua päivitystä ei enää saa takaisin."
+
+        warning: "Varoitus!"
+        warning_text: "Olet poistamassa tämän päivityksen. Poistettua päivitystä ei enää saa takaisin."
+        delete_button: "Poista tämä päivitys"
+        back_button: "Takaisin päivityslistaan"
+
 ### Months ###
 months:
     Jan: "Tammikuu"
@@ -190,6 +222,7 @@ common:
     category_deleted: "Kategoria on nyt poistettu!"
     category_deleted: "Uusi kategoria on nyt luotu!"
     post_deleted: "Kirjoitus on nyt poistettu!"
+    update_deleted: "Päivitys on nyt poistettu!"
 
 ### Error ####
 error:

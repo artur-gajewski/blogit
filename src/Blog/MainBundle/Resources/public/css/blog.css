@@ -28,6 +28,14 @@ a:hover {
     border: 0px;
 }
 
+div.update p {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    background-color: #ffffff;
+}
+
 .page-title {
     margin-bottom: 20px;
 }
