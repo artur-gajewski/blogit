@@ -30,7 +30,7 @@ side:
     unpublished: "Julkaisemattomat"
     category_admin: "Kategoriat"
     link_admin: "Linkit"
-    updates_admin: "Päivitykset"
+    update_admin: "Päivitykset"
 
     login: "Kirjaudu sisään"
     logout: "Kirjaudu ulos"
