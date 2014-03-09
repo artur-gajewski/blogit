@@ -15,15 +15,18 @@ class BaseController extends Controller
         $categoryService = $this->getCategoryService();
         $postService = $this->getPostService();
         $linkService = $this->getLinkService();
+        $updateService = $this->getUpdateService();
 
         $categories = $categoryService->getCategories();
         $unpublished = $postService->getUnpublishedPosts();
         $links = $linkService->getLinks();
+        $updates = $updateService->getUpdates();
 
         $common =  array(
             'categories' => $categories,
             'unpublished' => $unpublished,
-            'links' => $links
+            'links' => $links,
+            'updates' => $updates,
         );
 
         if (!empty($array)) {
@@ -55,6 +58,14 @@ class BaseController extends Controller
     public function getLinkService()
     {
         return $this->container->get('blog_main.service.link');
+    }
+
+    /**
+     * @return UpdateService
+     */
+    public function getUpdateService()
+    {
+        return $this->container->get('blog_main.service.update');
     }
 
     public function renderPostNotFound()

@@ -9,3 +9,7 @@ post:
 link:
     resource: "@BlogAdminBundle/Controller/LinkController.php"
     type:     annotation
+
+update:
+    resource: "@BlogAdminBundle/Controller/UpdateController.php"
+    type:     annotation

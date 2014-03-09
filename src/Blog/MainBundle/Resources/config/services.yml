@@ -9,7 +9,6 @@ services:
         factory_service: doctrine.orm.entity_manager
         factory_method:  getRepository
 
-
     blog_main.service.category:
         class:     Blog\MainBundle\Service\CategoryService
         arguments: ["@doctrine.orm.entity_manager", "@blog_main.repository.category", "@security.context"]
@@ -27,6 +26,16 @@ services:
     blog_main.repository.link:
         class:           Blog\MainBundle\Entity\LinkRepository
         arguments:       [Blog\MainBundle\Entity\Link]
+        factory_service: doctrine.orm.entity_manager
+        factory_method:  getRepository
+
+    blog_main.service.update:
+        class:     Blog\MainBundle\Service\UpdateService
+        arguments: ["@doctrine.orm.entity_manager", "@blog_main.repository.update", "@security.context"]
+
+    blog_main.repository.update:
+        class:           Blog\MainBundle\Entity\UpdateRepository
+        arguments:       [Blog\MainBundle\Entity\Update]
         factory_service: doctrine.orm.entity_manager
         factory_method:  getRepository
 

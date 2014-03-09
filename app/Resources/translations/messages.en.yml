@@ -23,12 +23,14 @@ side:
     categories_not_found: "No categories found."
 
     links: "Links"
+    update: "Currently"
 
     admin: "Admin"
     new_post: "New post"
     unpublished: "Unpublished posts"
     category_admin: "Categories"
     link_admin: "Links"
+    update_admin: "Updates"
 
     login: "Login"
     logout: "Logout"
@@ -165,6 +167,36 @@ links:
         delete_button: "Delete this link"
         back_button: "Back to the link list"
 
+### Updates listing ###
+updates:
+    list_updates: "Updates"
+    updates: "Updates"
+    options: "Options"
+    update: "Update"
+    edit_button: "Edit"
+    delete_button: "Delete"
+    create_button: "Create new update"
+    content: "Content"
+    new:
+        new_update: "New update"
+        content: "Content"
+        create_button: "Create update"
+    edit:
+        edit_update: "Edit update"
+        content: "Content"
+        save: "Save changes"
+        back: "Back to udates list"
+    delete:
+        delete_update: "Delete update"
+        content: "Content"
+
+        about: "You are about to delete this update. Once you delete it, you cannot undo the operation."
+
+        warning: "Warning!"
+        warning_text: "You are about to delete this update. Once you delete it, you cannot undo the operation."
+        delete_button: "Delete this update"
+        back_button: "Back to the updates list"
+
 ### Months ###
 months:
     Jan: "Jan"
@@ -190,6 +222,7 @@ common:
     category_deleted: "Category has been deleted!"
     category_deleted: "Category has been created!"
     post_deleted: "Post has been deleted!"
+    update_deleted: "Update has been deleted!"
 
 ### Error ###
 error:
