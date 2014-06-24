@@ -71,7 +71,6 @@ Connect to your database and run these commands:
 then run the following commands:
 
     $ app/console doctrine:database:create
-<<<<<<< HEAD
     
 Next, you will have to create the database schema for the BlogIt:
 
@@ -93,9 +92,6 @@ If you want to get development environment setup fast, you can use Vagrant to se
 virtually. All you have to do is run Vagrant as follows:
 
     $ vagrant up
-=======
-    $ app/console doctrine:schema:update --force
->>>>>>> ea742830111663252434eb374e1d3f529cd49392
 
 #Themes
 
