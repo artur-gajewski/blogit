@@ -34,18 +34,15 @@ CKEDITOR.editorConfig = function( config ) {
 	// Se the most common block elements.
 	config.format_tags = 'p;h1;h2;h3;pre';
 
-	// Make dialogs simpler.
-	config.removeDialogTabs = 'image:advanced;link:advanced';
-        
     // Don't convert to entities
     config.htmlEncodeOutput = false;
     config.entities = false;
 
     // Extra plugins:
     config.extraPlugins = 'youtube,pbckcode';
-    
-    config.allowedContent= 'pre[*]{*}(*)';
-    
+
+    //config.allowedContent= 'pre[*]{*}(*); img';
+
     // PBCKCODE CUSTOMIZATION
     config.pbckcode = {
          // An optional class to your pre tag.
