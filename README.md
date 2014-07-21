@@ -121,14 +121,14 @@ Enter required information and after the console is done creating your user you 
 
 There are many things you can customize in BlogIt in the parameters.yml file:
 
-blog_theme: Theme of the blog.
-blog_title: Title of the blog which will be visible in the navigation bar and browser's bar.
-blog_hero: Hero unit's big text.
-blog_subhero: Smaller head text under the hero unit.
-blog_copyright: Your copyright name.
-blog_email: email address you want to display to your readers.
-facebook_like_button: Whether you want to enable Facebook button after each post.
-facebook_commenting: Whether you want to enable Facebook comment plugin so that people can comment on your posts.
+	blog_theme: Theme of the blog.
+	blog_title: Title of the blog which will be visible in the navigation bar and browser's bar.
+	blog_hero: Hero unit's big text.
+	blog_subhero: Smaller head text under the hero unit.
+	blog_copyright: Your copyright name.
+	blog_email: email address you want to display to your readers.
+	facebook_like_button: Whether you want to enable Facebook button after each post.
+	facebook_commenting: Whether you want to enable Facebook comment plugin so that people can comment on your posts.
 
 #RESTful API
 
