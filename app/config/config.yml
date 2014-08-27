@@ -37,6 +37,7 @@ twig:
         blog_email: "%blog_email%"
         facebook_like_button: "%facebook_like_button%"
         facebook_commenting: "%facebook_commenting%"
+        addsearch_key: "%addsearch_key%"
 
 # Assetic Configuration
 assetic:
