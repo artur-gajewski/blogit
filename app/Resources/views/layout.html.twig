@@ -39,11 +39,17 @@
             <a href="{{ path('homepage') }}" class="navbar-brand">{{ blog_title }}</a>
         </div>
         <div class="navbar-collapse navbar-responsive-collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <form action="{{ path('search') }}" method="POST" class="navbar-form navbar-right">
-                    <input type="text" name="searchPhrase" class="form-control col-lg-8" placeholder="{{ "common.search" | trans }}">
-                </form>
-            </ul>
+            {% if addsearch_key %}
+                <ul class="nav navbar-nav navbar-right" id="addsearch">
+                    <script type="text/javascript" src="https://addsearch.com/js/?key={{ addsearch_key }}"></script>
+                </ul>
+            {% else %}
+                <ul class="nav navbar-nav navbar-right">
+                    <form action="{{ path('search') }}" method="POST" class="navbar-form navbar-right">
+                        <input type="text" name="searchPhrase" class="form-control col-lg-8" placeholder="{{ "common.search" | trans }}">
+                    </form>
+                </ul>
+            {% endif %}
         </div>
     </div>
 </div>

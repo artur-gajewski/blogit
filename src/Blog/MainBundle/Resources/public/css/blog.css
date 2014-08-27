@@ -78,6 +78,10 @@ div.update p {
     height: 70px;
 }
 
+#addsearch {
+    margin-top: 10px;
+}
+
 @media (max-width: 767px) {
     .page {
         margin-top: 145px;
@@ -111,6 +115,11 @@ div.update p {
         width: 32% !important;
         height:auto !important;
         display:block;
+    }
+
+    #addsearch {
+        margin-top: 0px;
+        margin-left: 0px;
     }
 }
 

@@ -23,3 +23,5 @@ parameters:
 
     facebook_like_button: true
     facebook_commenting: true
+
+    addsearch_key:     ~

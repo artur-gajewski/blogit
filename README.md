@@ -103,6 +103,14 @@ which are meant to override certain components in the bootstrap.css definitions.
 
 Themes are kindly provided by Thomas Park and his wonderful project at www.bootswatch.com
 
+#AddSearch implementation
+
+This blog features, along it's own native search function, a possibility to use AddSearch's technology to index the whole
+blog and to use their plugin to generate very nice content search based on a search word.
+
+In order to replace the blog's own search function with AddSearch plugin, you must obtain a site specific key from
+[www.addsearch.com](http://www.addsearch.com) and insert it into the addsearch_key variable in parameters.yml file.
+
 #Assets
 
 BlogIt uses asset management and thus, you must install the assets.
