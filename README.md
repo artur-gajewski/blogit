@@ -106,7 +106,7 @@ Themes are kindly provided by Thomas Park and his wonderful project at www.boots
 #AddSearch implementation
 
 This blog features, along it's own native search function, a possibility to use AddSearch's technology to index the whole
-blog and to use their plugin to generate very nice search function.
+blog and to use their plugin to generate very nice content search based on a search word.
 
 In order to replace the blog's own search function with AddSearch plugin, you must obtain a site specific key from
 [www.addsearch.com](http://www.addsearch.com) and insert it into the addsearch_key variable in parameters.yml file.
