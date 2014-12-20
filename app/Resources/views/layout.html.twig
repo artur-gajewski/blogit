@@ -108,7 +108,7 @@
             <div class="list-group">
                 {% for category in categories %}
                 <a class="list-group-item" href="{{ url('homepage') }}category/{{ category.slug }}">
-                    &raquo; {{ category.title | capitalize }}
+                    &raquo; {{ category.title }}
                     <span class="badge">{{ category.getCountPosts() }}</span>
                 </a>
                 {% else %}
