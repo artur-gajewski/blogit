@@ -20,7 +20,7 @@
                     {% set post_created_key = "months." ~ (post.created | date('M') ) %}
                     {{ post_created_key | trans }} {{ post.created | date('j, Y') }}
                     {% if show_category == true %}
-                        - in <a href="{{ url('homepage') }}category/{{ post.category.slug }}">{{ post.category.title | capitalize }}</a>
+                        - in <a href="{{ url('homepage') }}category/{{ post.category.slug }}">{{ post.category.title }}</a>
                     {% endif %}
                 </h6>
 

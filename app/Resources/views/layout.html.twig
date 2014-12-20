@@ -84,7 +84,7 @@
         {% block section %}
             {% if current_category is defined %}
                 <li>{{ "common.category" | trans }}</li>
-                <li>{{ current_category.title | capitalize }}</li>
+                <li>{{ current_category.title }}</li>
             {% endif %}
         {% endblock %}
     </ul>
