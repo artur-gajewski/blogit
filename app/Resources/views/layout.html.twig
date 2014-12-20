@@ -57,7 +57,7 @@
 <div class="container page">
     <main class="bs-masthead" id="content" role="main">
         {% if app.user and is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-            <h1>{{ "hero.hello" | trans }}, {{ app.user }}</h1>
+            <h1>{{ "hero.hello" | trans }} {{ app.user.firstName }} ;-)</h1>
             <p class="lead">{{ "hero.sub" | trans }}</p>
         {% else %}
             <h1>{{ blog_hero }}</h1>
