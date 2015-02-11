@@ -35,7 +35,7 @@ class PostController extends BaseController
 
             if ($request->get('endingDate') != '') {
                 $endingDate = new \DateTime($request->get('endingDate'));
-                $post->setStartingDate($endingDate);
+                $post->setEndingDate($endingDate);
             }
 
             $category = $categoryService->getCategoryById($request->get('category'));
