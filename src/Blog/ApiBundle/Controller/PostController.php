@@ -25,9 +25,7 @@ class PostController extends BaseController
     {
         $postService = $this->getPostService();
 
-        $showCurrentOnly = $this->get('request')->query->get('current', false);
-
-        $posts = $postService->getPosts('DESC', $showCurrentOnly);
+        $posts = $postService->getPosts('DESC', true);
         $data = array();
 
         foreach ($posts as $post) {
@@ -45,7 +43,7 @@ class PostController extends BaseController
     public function orderedAction()
     {
         $postService = $this->getPostService();
-        $posts = $postService->getPosts('ASC');
+        $posts = $postService->getPosts('ASC', true);
         $data = array();
 
         foreach ($posts as $post) {
