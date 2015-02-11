@@ -19,7 +19,7 @@ class ListingController extends BaseController
     public function indexAction()
     {
         $postService = $this->getPostService();
-        $posts = $postService->getPosts();
+        $posts = $postService->getPosts('DESC', false);
 
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(

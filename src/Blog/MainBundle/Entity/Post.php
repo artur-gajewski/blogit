@@ -53,6 +53,20 @@ class Post
     /**
      * @var \DateTime
      *
+     * @ORM\Column(name="startingDate", type="datetime", nullable=true)
+     */
+    private $startingDate;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="endingDate", type="datetime", nullable=true)
+     */
+    private $endingDate;
+
+    /**
+     * @var \DateTime
+     *
      * @ORM\Column(name="created", type="datetime")
      */
     private $created;
@@ -180,6 +194,52 @@ class Post
     public function getContent()
     {
         return $this->content;
+    }
+
+    /**
+     * Set starting date
+     *
+     * @param \DateTime $startingDate
+     * @return Post
+     */
+    public function setStartingDate($startingDate = null)
+    {
+        $this->startingDate = $startingDate;
+
+        return $this;
+    }
+
+    /**
+     * Get starting date
+     *
+     * @return \DateTime
+     */
+    public function getStartingDate()
+    {
+        return $this->startingDate;
+    }
+
+    /**
+     * Set ending date
+     *
+     * @param \DateTime $endingDate
+     * @return Post
+     */
+    public function setEndingDate($endingDate = null)
+    {
+        $this->endingDate = $endingDate;
+
+        return $this;
+    }
+
+    /**
+     * Get ending date
+     *
+     * @return \DateTime
+     */
+    public function getEndingDate()
+    {
+        return $this->endingDate;
     }
 
     /**

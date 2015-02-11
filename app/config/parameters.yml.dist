@@ -22,6 +22,6 @@ parameters:
     blog_email: your.email@address.com
 
     facebook_like_button: true
-    facebook_commenting: true
-
-    addsearch_key:     ~
+    facebook_commenting:  true
+    addsearch_key:        ~
+    uploader_url:         ~

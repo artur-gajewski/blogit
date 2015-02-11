@@ -12,7 +12,7 @@ navigation:
 
 hero:
     hello: "Terve"
-    sub: "Voit nyt luoda uusia kirjoituksia blogiisi."
+    sub: "Voit nyt luoda uutta sisältöä."
 
 side:
     listings: "Kirjoitukset"
@@ -62,6 +62,9 @@ new:
     status_not_published: "Julkaisematon"
     save_button: "Tallenna"
 
+    starting: "Aloitus pvm"
+    ending: "Lopetus pvm"
+
     post_saved_and_published: "Kirjoitus on tallennettu ja julkaistu!"
     post_saved_but_not_published: "Kirjoitus on tallennettu, mutta sitä ei ole vielä julkaistu!"
 
@@ -80,6 +83,9 @@ edit:
 
     post_modify: "Muokkaa"
     post_delete: "Poista"
+
+    starting: "Aloitus pvm"
+    ending: "Lopetus pvm"
 
 ### Post delete ###
 delete:
@@ -223,6 +229,7 @@ common:
     category_deleted: "Uusi kategoria on nyt luotu!"
     post_deleted: "Kirjoitus on nyt poistettu!"
     update_deleted: "Päivitys on nyt poistettu!"
+    upload_manager: "Siirrä kuvia palvelimelle"
 
 ### Error ####
 error:

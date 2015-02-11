@@ -26,12 +26,36 @@
                         </select>
                     </div>
                 </div>
+
+                {% if uploader_url %}
+                    <div class="form-group">
+                        <div class="col-lg-10">
+                            <a class="btn btn-primary" href="{{ uploader_url }}" target="_BLANK">{{ "common.upload_manager" | trans }}</a>
+                        </div>
+                    </div>
+                {% endif %}
+
                 <div class="form-group">
                     <label for="content" class="col-lg-2 control-label">{{ "new.content" | trans }}</label>
                     <div class="col-lg-10">
                         <textarea id="content" name="content" class="ckeditor"></textarea>
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <label for="title" class="col-lg-2 control-label">{{ "new.starting" | trans }}</label>
+                    <div class="col-lg-10">
+                        <input READONLY type="text" class="form-control" id="startingDate" name="startingDate"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="title" class="col-lg-2 control-label">{{ "new.starting" | trans }}</label>
+                    <div class="col-lg-10">
+                        <input READONLY type="text" class="form-control" id="endingDate" name="endingDate"/>
+                    </div>
+                </div>
+
                 <div class="form-group">
                     <label for="status" class="col-lg-2 control-label">{{ "new.status" | trans }}</label>
                     <div class="col-lg-10">
@@ -54,5 +78,12 @@
 {% block javascripts %}
 <script src="{{ asset('bundles/blogmain//ckeditor/ckeditor.js') }}"></script>
 <script src="{{ asset('bundles/blogmain//ckeditor/adapters/jquery.js') }}"></script>
-
+    <script>
+        $('#startingDate').datepicker({
+            format: 'yyyy-mm-dd'
+        });
+        $('#endingDate').datepicker({
+            format: 'yyyy-mm-dd'
+        });
+    </script>
 {% endblock %}
