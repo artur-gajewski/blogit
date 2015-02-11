@@ -144,10 +144,6 @@ If you want to implement blog writings to any third party website, it is very si
 
 Fetch list of posts from newest to oldest: /api/v1/posts
 
-Fetch list of posts from newest to oldest that are currently available: /api/v1/posts?current=true
-<br/>
-This feature is good for news content on website's front page and you want to only display current news.
-
 Fetch list of posts in chronological order: /api/v1/posts/ordered
 
 Fetch individual post: /api/v1/posts/{postId}
