@@ -27,10 +27,41 @@
                         </select>
                     </div>
                 </div>
+
+                {% if uploader_url %}
+                    <div class="form-group">
+                        <div class="col-lg-10">
+                            <a class="btn btn-primary" href="{{ uploader_url }}" target="_BLANK">{{ "common.upload_manager" | trans }}</a>
+                        </div>
+                    </div>
+                {% endif %}
+
                 <div class="form-group">
                     <label for="content" class="col-lg-2 control-label">{{ "edit.post_content" | trans }}</label>
                     <div class="col-lg-10">
                         <textarea id="content" name="content" class="ckeditor">{{ post.content }}</textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="title" class="col-lg-2 control-label">{{ "edit.starting" | trans }}</label>
+                    <div class="col-lg-10">
+                        {% if post.startingDate != null %}
+                            <input READONLY type="text" class="form-control" id="startingDate" name="startingDate" value="{{ post.startingDate | date('Y-m-d') }}"/>
+                        {% else %}
+                            <input READONLY type="text" class="form-control" id="startingDate" name="startingDate" value=""/>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="title" class="col-lg-2 control-label">{{ "edit.ending" | trans }}</label>
+                    <div class="col-lg-10">
+                        {% if post.endingDate != null %}
+                            <input READONLY type="text" class="form-control" id="endingDate" name="endingDate" value="{{ post.endingDate | date('Y-m-d') }}"/>
+                        {% else %}
+                            <input READONLY type="text" class="form-control" id="endingDate" name="endingDate" value=""/>
+                        {% endif %}
                     </div>
                 </div>
 
@@ -68,6 +99,14 @@
         $('#created').datepicker({
             format: 'yyyy-mm-dd'
         });
+        $('#startingDate').datepicker({
+            format: 'yyyy-mm-dd'
+        });
+        $('#endingDate').datepicker({
+            format: 'yyyy-mm-dd'
+        });
     </script>
 
 {% endblock %}
+
+

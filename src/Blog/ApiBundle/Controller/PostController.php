@@ -24,7 +24,10 @@ class PostController extends BaseController
     public function postsAction()
     {
         $postService = $this->getPostService();
-        $posts = $postService->getPosts();
+
+        $showCurrentOnly = $this->get('request')->query->get('current', false);
+
+        $posts = $postService->getPosts('DESC', $showCurrentOnly);
         $data = array();
 
         foreach ($posts as $post) {

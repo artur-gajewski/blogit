@@ -46,12 +46,9 @@ class PostService
     /**
      * @return array Post
      */
-    public function getPosts($order = 'DESC')
+    public function getPosts($order = 'DESC', $showOnlyCurrent = false)
     {
-        return $this->repository->findBy(
-            array('status' => 1),
-            array('created' => $order)
-        );
+        return $this->repository->findPosts($order, $showOnlyCurrent);
     }
 
     /**

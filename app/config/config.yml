@@ -38,6 +38,7 @@ twig:
         facebook_like_button: "%facebook_like_button%"
         facebook_commenting: "%facebook_commenting%"
         addsearch_key: "%addsearch_key%"
+        uploader_url: "%uploader_url%"
 
 # Assetic Configuration
 assetic:

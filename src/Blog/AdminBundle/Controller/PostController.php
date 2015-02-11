@@ -28,6 +28,16 @@ class PostController extends BaseController
             $post->setTitle($request->get('title'));
             $post->setStatus($request->get('status'));
 
+            if ($request->get('startingDate') != '') {
+                $startingDate = new \DateTime($request->get('startingDate'));
+                $post->setStartingDate($startingDate);
+            }
+
+            if ($request->get('endingDate') != '') {
+                $endingDate = new \DateTime($request->get('endingDate'));
+                $post->setStartingDate($endingDate);
+            }
+
             $category = $categoryService->getCategoryById($request->get('category'));
             $post->setCategory($category);
 
@@ -70,6 +80,16 @@ class PostController extends BaseController
         if ($request->getMethod() == 'POST') {
             $post->setTitle($request->get('title'));
             $post->setStatus($request->get('status'));
+
+            if ($request->get('startingDate') != '') {
+                $startingDate = new \DateTime($request->get('startingDate'));
+                $post->setStartingDate($startingDate);
+            }
+
+            if ($request->get('endingDate') != '') {
+                $endingDate = new \DateTime($request->get('endingDate'));
+                $post->setEndingDate($endingDate);
+            }
 
             $newDate = new \DateTime($request->get('created'));
             $post->setCreated($newDate);

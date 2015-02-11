@@ -62,6 +62,9 @@ new:
     status_not_published: "Not published"
     save_button: "Save"
 
+    starting: "Starting date"
+    ending: "Ending date"
+
     post_saved_and_published: "Post has been saved and published!"
     post_saved_but_not_published: "Post has been saved, but is has not been published yet!"
 
@@ -80,6 +83,9 @@ edit:
 
     post_modify: "Modify"
     post_delete: "Delete"
+
+    starting: "Starting date"
+    ending: "Ending date"
 
 ### Post delete ###
 delete:
@@ -216,13 +222,14 @@ months:
 common:
     search: "Search"
     post: "Post"
-    category: "Catgeory"
+    category: "Category"
     admin: "Administration"
     changes_saved: "Your changes have been saved!"
     category_deleted: "Category has been deleted!"
     category_deleted: "Category has been created!"
     post_deleted: "Post has been deleted!"
     update_deleted: "Update has been deleted!"
+    upload_manager: "Upload images to server"
 
 ### Error ###
 error:
