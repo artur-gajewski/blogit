@@ -30,8 +30,8 @@ class PostController extends BaseController
 
         foreach ($posts as $post) {
             $row = $this->getPostData($post);
-            $row['created'] = strtotime($row['created']->format('Y-m-d H:i:s')) * 1000;
-            $row['modified'] = strtotime($row['modified']->format('Y-m-d H:i:s')) * 1000;
+            $row['created'] = strtotime($row['created']->format('Y-m-d H:i:s'));
+            $row['modified'] = strtotime($row['modified']->format('Y-m-d H:i:s'));
             $data[] = $row;
         }
 
