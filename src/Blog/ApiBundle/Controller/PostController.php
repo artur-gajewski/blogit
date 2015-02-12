@@ -29,7 +29,10 @@ class PostController extends BaseController
         $data = array();
 
         foreach ($posts as $post) {
-            $data[] = $this->getPostData($post);
+            $row = $this->getPostData($post);
+            $row['created'] = strtotime($row['created']->format('Y-m-d H:i:s')) * 1000;
+            $row['modified'] = strtotime($row['modified']->format('Y-m-d H:i:s')) * 1000;
+            $data[] = $row;
         }
 
         $response = $this->createResponse($data);
