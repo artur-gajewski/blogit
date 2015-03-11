@@ -7,7 +7,7 @@ BlogIt is an open source blog engine alternative to Blogger and Wordpress and is
 
 - PHP 5.3 or later
 - Symfony2
-- MySQL
+- MySQL / PostgreSQL
 
 #Features
 
