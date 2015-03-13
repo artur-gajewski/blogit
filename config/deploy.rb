@@ -7,8 +7,7 @@ set :repo_url, 'git@github.com:mercantileoyab/blogit.git'
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
 # Default deploy_to directory is /var/www/my_app
-# set :deploy_to, '/var/www/kirjablogi'
-set :log_level, :debug
+
 # Default value for :scm is :git
 # set :scm, :git
 
@@ -33,8 +32,8 @@ set :log_level, :debug
 # Default value for keep_releases is 5
 set :keep_releases, 5
 
-#set :linked_dirs, %w{app/logs}
-
+set :linked_dirs, %w{app/logs}
+#set :linked_dirs, %w{app/cache}
 set :linked_files, %w{app/config/parameters.yml}
 
 namespace :deploy do
