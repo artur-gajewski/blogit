@@ -1,15 +1,14 @@
 # config valid only for Capistrano 3.1
-lock '3.2.1'
 
-set :application, 'kirjablogi'
-set :repo_url, 'git@github.com:artur-gajewski/blogit.git'
+set :application, 'blogit'
+set :repo_url, 'git@github.com:mercantileoyab/blogit.git'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
 # Default deploy_to directory is /var/www/my_app
 # set :deploy_to, '/var/www/kirjablogi'
-
+set :log_level, :debug
 # Default value for :scm is :git
 # set :scm, :git
 
@@ -34,9 +33,9 @@ set :repo_url, 'git@github.com:artur-gajewski/blogit.git'
 # Default value for keep_releases is 5
 set :keep_releases, 5
 
-set :linked_dirs, %w{app/logs app/cache}
+#set :linked_dirs, %w{app/logs}
 
-set :linked_files, %w{config/parameters.yml}
+set :linked_files, %w{app/config/parameters.yml}
 
 namespace :deploy do
 
